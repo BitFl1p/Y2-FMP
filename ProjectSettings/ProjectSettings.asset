@@ -554,7 +554,7 @@ PlayerSettings:
     1: 
     4: 
     7: 
-    13: BUILD_TYPE_GAME_PROTOTYPE;BUILD_PLATFORM_WEBGL;BUILD_ARCH_WEBGL
+    13: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
