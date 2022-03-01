@@ -41,6 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Room 1
+  - name: Room M
     uniqueID: 549439577
+    locked: 0
+  - name: Room R
+    uniqueID: 2178051539
+    locked: 0
+  - name: Room L
+    uniqueID: 1935289623
+    locked: 0
+  - name: Room D
+    uniqueID: 3526404051
+    locked: 0
+  - name: Foreground
+    uniqueID: 1761746325
     locked: 0
