@@ -6,15 +6,15 @@ using Cinemachine;
 public class CameraController : MonoBehaviour
 {
     public List<CinemachineVirtualCamera> rooms;
-    int _activeRoom = 2;
-    public int activeRoom
+    int activeRoom = 2;
+    public int ActiveRoom
     {
-        get { return _activeRoom; }
+        get { return activeRoom; }
         set
         {
-            if(value != _activeRoom)
+            if(value != activeRoom)
             {
-                _activeRoom = value;
+                activeRoom = value;
                 roomChanged = true;
             }
         }
@@ -44,7 +44,7 @@ public class CameraController : MonoBehaviour
             {
                 room.Priority = 0;
             }
-            rooms[activeRoom - 1].Priority = 1;
+            rooms[ActiveRoom - 1].Priority = 1;
             roomChanged = false;
         }
         Vector2 input = GetInput();
@@ -52,21 +52,21 @@ public class CameraController : MonoBehaviour
         {
             if (!pressed)
             {
-                switch (activeRoom)
+                switch (ActiveRoom)
                 {
                     case 1:
-                        if (input.x >= .5) activeRoom++;
+                        if (input.x >= .5) ActiveRoom++;
                         break;
                     case 2:
-                        if (input.y <= -.5) activeRoom = 4;
-                        else if (input.x >= .5) activeRoom++;
-                        else if (input.x <= -.5) activeRoom--;
+                        if (input.y <= -.5) ActiveRoom = 4;
+                        else if (input.x >= .5) ActiveRoom++;
+                        else if (input.x <= -.5) ActiveRoom--;
                         break;
                     case 3:
-                        if (input.x <= -.5) activeRoom--;
+                        if (input.x <= -.5) ActiveRoom--;
                         break;
                     case 4:
-                        if (input.y >= .5) activeRoom = 2;
+                        if (input.y >= .5) ActiveRoom = 2;
                         break;
                 }
                 pressed = true;

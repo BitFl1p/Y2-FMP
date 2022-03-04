@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hammer : MonoBehaviour
+public class FollowMouse : MonoBehaviour
 {
     public Transform origin;
     Rigidbody2D rb;
     public float moveSpeed;
     bool clickedOn;
+    public bool hasGravity;
+    Vector2 start;
+    public float zOffset;
     private void Start()
     {
+        start = transform.position;
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -33,17 +37,18 @@ public class Hammer : MonoBehaviour
             }
             else
             {
-                rb.gravityScale = 0;
+                if (hasGravity) rb.gravityScale = 0;
                 rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
             }
 
         }
         else
         {
-            rb.gravityScale = 9.8f;
+            if(hasGravity) rb.gravityScale = 9.8f;
+            else rb.velocity = (start - (Vector2)transform.position).normalized * Vector2.Distance(start, (Vector2)transform.position);
             clickedOn = false;
         }
-        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg + zOffset;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

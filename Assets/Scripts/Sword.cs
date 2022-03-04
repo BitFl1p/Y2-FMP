@@ -18,7 +18,7 @@ public class Sword : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out Hammer hammer) && hitCount <= 0)
+        if(collision.gameObject.TryGetComponent(out FollowMouse hammer) && hitCount <= 0)
         {
             if(hammer.GetComponent<Rigidbody2D>().gravityScale == 0) 
             { 
