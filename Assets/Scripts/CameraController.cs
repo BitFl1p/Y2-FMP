@@ -20,22 +20,7 @@ public class CameraController : MonoBehaviour
         }
     }
     bool roomChanged, pressed;
-    #region Singleton Shit
-    public static CameraController instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
-        DontDestroyOnLoad(instance);
-    }
-    #endregion
+    
     private void Update()
     {
         if(roomChanged)
