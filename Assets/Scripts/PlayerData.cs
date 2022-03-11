@@ -20,7 +20,6 @@ public class PlayerData : MonoBehaviour
         DontDestroyOnLoad(instance);
     }
     #endregion
-
     public Dictionary<Item, int> inventory;
     public int money;
     public int matchesDone;
