@@ -8,7 +8,7 @@ public class FollowMouse : MonoBehaviour
     public Transform origin;
     internal Rigidbody2D rb;
     public float moveSpeed;
-    internal bool clickedOn;
+    public bool clickedOn;
     internal Vector2 start;
     public float zOffset;
     internal virtual void Start()

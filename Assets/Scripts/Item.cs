@@ -29,6 +29,7 @@ public class Item : FollowMouse
             }
             else
             {
+                gameObject.layer = 8;
                 rb.gravityScale = 0f;
                 rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
             }
@@ -36,16 +37,9 @@ public class Item : FollowMouse
         }
         else
         {
+            gameObject.layer = 7;
             rb.gravityScale = 9.8f;
             clickedOn = false;
-        }
-        if(Input.GetAxisRaw("Horizontal") != 0)
-        {
-            //horizontal movement
-        }
-        else if(Input.GetAxisRaw("Vertical") != 0)
-        {
-            //vertical movement
         }
     }
 }
