@@ -31,11 +31,11 @@ public class PlayerData : MonoBehaviour
     public bool paused;
     void Update()
     {
-        if (paused)
+        /*if (paused)
         {
             Time.timeScale = 0;
             pause.SetActive(true);
-        }
+        }*/
         if (fighting)
         {
             forge.SetActive(false);

@@ -28,7 +28,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     {
         if(PlayerData.instance.RemoveItem(item, 1))
         {
-            var bruh = Instantiate(itemPrefab, transform.position, transform.rotation);
+            var bruh = Instantiate(itemPrefab, (Vector2)transform.position, transform.rotation);
             bruh.Instantiate(item);
             bruh.clickedOn = true;
         }

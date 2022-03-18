@@ -17,7 +17,7 @@ public class Item : FollowMouse
     }
     internal override void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!clickedOn)
             {
@@ -27,13 +27,16 @@ public class Item : FollowMouse
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
                 if (hit.transform) if (hit.transform.gameObject == gameObject) clickedOn = true;
             }
-            else
-            {
-                gameObject.layer = 8;
-                rb.gravityScale = 0f;
-                rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
-            }
+            
 
+        }
+        
+        if (clickedOn)
+        {
+            gameObject.layer = 8;
+            rb.gravityScale = 0f;
+            rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
+            if (Input.GetMouseButtonUp(0)) clickedOn = false;
         }
         else
         {

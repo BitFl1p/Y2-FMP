@@ -11666,6 +11666,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1421555118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1124274886714946220, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+  m_PrefabInstance: {fileID: 1124274887405695407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423217780
 GameObject:
   m_ObjectHideFlags: 0
@@ -12301,6 +12306,11 @@ Transform:
   m_Father: {fileID: 1376056931}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1533491271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308977233372774195, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+  m_PrefabInstance: {fileID: 1124274887405695407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1542691015
 GameObject:
   m_ObjectHideFlags: 0
@@ -29877,6 +29887,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: fight
+      value: 
+      objectReference: {fileID: 1533491271}
+    - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: forge
+      value: 
+      objectReference: {fileID: 1421555118}
     - target: {fileID: 1124274887498713391, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_RootOrder
       value: 3

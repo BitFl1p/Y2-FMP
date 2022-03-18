@@ -18,4 +18,6 @@ public class ItemObject : ScriptableObject
     public Sprite sprite;
     public int basePrice;
     public int[] statBoosts;
+    public int amount;
+    public float materialAmount;
 }
