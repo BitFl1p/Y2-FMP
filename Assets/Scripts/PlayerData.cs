@@ -26,7 +26,27 @@ public class PlayerData : MonoBehaviour
     public List<InventoryItem> uiItems;
     public InventoryItem uiItemPrefab;
     public Transform inventoryPlace;
-    
+    public GameObject forge, fight, pause;
+    public bool fighting;
+    public bool paused;
+    void Update()
+    {
+        if (paused)
+        {
+            Time.timeScale = 0;
+            pause.SetActive(true);
+        }
+        if (fighting)
+        {
+            forge.SetActive(false);
+            fight.SetActive(true);
+        }
+        else
+        {
+            forge.SetActive(true);
+            fight.SetActive(false);
+        }
+    }
     void UpdateInventory()
     {
 
@@ -47,14 +67,15 @@ public class PlayerData : MonoBehaviour
             count++;
             if (count % 2 == 1)
             {
-                uiItem.transform.localPosition = new Vector3(10, (count * 2), 0);
+                uiItem.transform.localPosition = new Vector3(-60, (-(count - 1) * 80), 0);
             }
             else
             {
-                uiItem.transform.localPosition = new Vector3(10, (count / 2 * 2), 0);
+                uiItem.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 80), 0);
             }
         }
     }
+    
     public void AddItem(ItemObject item, int amount)
     {
         if (inventory.ContainsKey(item)) inventory[item] += amount;

@@ -5,6 +5,7 @@ using TMPro;
 
 public class ShopItemBuyer : MonoBehaviour
 {
+    public bool refresh;
     public int modifier;
     public List<ItemObject> itemsToSell;
     public List<ShopItem> shopThings;
@@ -12,9 +13,13 @@ public class ShopItemBuyer : MonoBehaviour
 
     private void Start()
     {
+        Refresh();
+    }
+    public void Refresh()
+    {
         foreach(ShopItem shopThing in shopThings)
         {
-            shopThing.item = itemsToSell[Random.Range(0, itemsToSell.Count - 1)];
+            shopThing.item = itemsToSell[Random.Range(0, itemsToSell.Count)];
             shopThing.Start();
         }
     }
@@ -24,6 +29,11 @@ public class ShopItemBuyer : MonoBehaviour
     }
     private void Update()
     {
+        if (refresh)
+        {
+            Refresh();
+            refresh = false;
+        }
         moneyText.text = "Money: " + PlayerData.instance.money;
     }
 }
