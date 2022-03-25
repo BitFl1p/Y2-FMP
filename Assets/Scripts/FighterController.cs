@@ -7,7 +7,7 @@ public class FighterController : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     public float animTransitionSpeed, maxSpeed, speed, crouchedSpeed, crouchedMaxSpeed, jumpPower;
-    public bool isGrounded;
+    public bool isGrounded, playerControlled;
     Vector2 input;
 
     void OnEnable()
@@ -17,11 +17,14 @@ public class FighterController : MonoBehaviour
     }
     void Update()
     {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(playerControlled) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x, animTransitionSpeed));
         anim.SetFloat("Y", input.y);
-        if(isGrounded && (input.y == 1 || Input.GetKeyDown(KeyCode.Space)))
+        if (isGrounded && (input.y == 1 || Input.GetKeyDown(KeyCode.Space)))
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            isGrounded = false;
+        }
     }
     void FixedUpdate()
     {

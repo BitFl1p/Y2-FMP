@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class PlayerData : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class PlayerData : MonoBehaviour
         DontDestroyOnLoad(instance);
     }
     #endregion
-    public Dictionary<ItemObject, int> inventory = new Dictionary<ItemObject, int> { };
+    public List<(ItemObject item, int amount)> inventory = new List<(ItemObject, int)> { };
     public int money;
     public int matchesDone;
     public List<InventoryItem> uiItems;
@@ -50,45 +52,43 @@ public class PlayerData : MonoBehaviour
     void UpdateInventory()
     {
 
-        foreach (InventoryItem uiItem in uiItems)
-        {
-            if(uiItem) Destroy(uiItem.gameObject);
-        }
+        foreach (InventoryItem uiItem in uiItems) if(uiItem) Destroy(uiItem.gameObject);
         uiItems.Clear();
+        int count = 0;
         foreach (var item in inventory)
         {
+            count++;
             var something = Instantiate(uiItemPrefab, inventoryPlace);
             uiItems.Add(something);
-            something.Instantiate(item.Key, item.Value);
-        }
-        int count = 0;
-        foreach (InventoryItem uiItem in uiItems)
-        {
-            count++;
+            something.Instantiate(item.item, item.amount);
             if (count % 2 == 1)
             {
-                uiItem.transform.localPosition = new Vector3(-60, (-(count - 1) * 80), 0);
+                something.transform.localPosition = new Vector3(-60, (-(count - 1) * 80), 0);
             }
             else
             {
-                uiItem.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 80), 0);
+                something.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 80), 0);
             }
+
         }
     }
     
     public void AddItem(ItemObject item, int amount)
     {
-        if (inventory.ContainsKey(item)) inventory[item] += amount;
-        else inventory.Add(item, amount);
+        int index = inventory.FindIndex(x => x.item == item);
+        if(index != -1) inventory[index] = (item, inventory[index].amount + amount);
+        else inventory.Add((item, amount));
         UpdateInventory();
     }
     public bool RemoveItem(ItemObject item, int amount)
     {
-        if (inventory.ContainsKey(item)) 
+        int index = inventory.FindIndex(x => x.item == item);
+        if (index != -1)
         {
-            if (inventory[item] >= amount)
+            if (inventory[index].amount >= amount)
             {
-                inventory[item] -= amount;
+                inventory[index] = (item, inventory[index].amount - amount);
+                if (inventory[index].amount <= 0) inventory.Remove(inventory[index]);
                 UpdateInventory();
                 return true;
             }
