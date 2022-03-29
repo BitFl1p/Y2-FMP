@@ -17,27 +17,31 @@ public class FighterController : MonoBehaviour
     }
     void Update()
     {
-        if(playerControlled) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(playerControlled && isGrounded) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x, animTransitionSpeed));
         anim.SetFloat("Y", input.y);
-        if (isGrounded && (input.y == 1 || Input.GetKeyDown(KeyCode.Space)))
+        if (Input.GetKeyDown(KeyCode.Space)) input.y = 1;
+        
+        if (isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            isGrounded = false;
-        }
-    }
-    void FixedUpdate()
-    {
-        if (input.y == -1)
-        {
-            rb.velocity += new Vector2(input.x * crouchedSpeed, 0);
-            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -crouchedMaxSpeed, crouchedMaxSpeed), rb.velocity.y);
+            anim.SetFloat("JumpAnim", 0);
+            if (input.y == -1)
+            {
+                rb.velocity += new Vector2(input.x * crouchedSpeed, 0);
+                rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -crouchedMaxSpeed, crouchedMaxSpeed), rb.velocity.y);
 
+            }
+            else
+            {
+                rb.velocity += new Vector2(input.x * speed, 0);
+                rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
+            }
+            if (input.y == 1)
+            {
+                isGrounded = false;
+            }
         }
-        else 
-        { 
-            rb.velocity += new Vector2(input.x * speed, 0);
-            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
-        }
+        
+
     }
 }

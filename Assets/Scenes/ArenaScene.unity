@@ -601,6 +601,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1007554403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007554400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92dad55bef2e5a4389fdd701196e9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027695989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8815039289795588858, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
@@ -1390,6 +1402,34 @@ PrefabInstance:
     - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0065894052
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999964
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0026737682
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000034093733
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000009115906
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146618819235816278, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3910124155344985117, guid: 6e2ec3de42e55f34684c6fcb32d131c9, type: 3}
       propertyPath: m_Quality
@@ -3022,7 +3062,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 5.7
   m_Material: {fileID: 0}
   m_Interpolate: 1

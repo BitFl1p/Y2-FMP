@@ -24,7 +24,7 @@ public class FollowMouse : MonoBehaviour
         Vector3 objectPos = transform.position;
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!clickedOn)
             {
@@ -34,12 +34,14 @@ public class FollowMouse : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
                 if(hit.transform) if (hit.transform.gameObject == gameObject) clickedOn = true;
             }
-            else
-            {
-                rb.gravityScale = 0f;
-                rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
-            }
+            
 
+        }
+        if(clickedOn)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
+            if (Input.GetMouseButtonUp(0)) clickedOn = false;
         }
         else
         {

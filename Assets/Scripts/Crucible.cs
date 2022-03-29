@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Crucible : MonoBehaviour
 {
+    public ItemObject item; 
     public float material;
     public float maxMaterial;
     public Slider fill;
@@ -12,6 +13,11 @@ public class Crucible : MonoBehaviour
     public Transform crucible;
     public CrucibleFollowMouse mouseFollower;
     public Mould mould;
+    public void DumpMaterial()
+    {
+        material = 0;
+        item = null;
+    }
     void Start()
     {
         fill.maxValue = maxMaterial;

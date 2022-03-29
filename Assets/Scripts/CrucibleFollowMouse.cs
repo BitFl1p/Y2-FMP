@@ -1,16 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CrucibleFollowMouse : FollowMouse
 {
     public Crucible crucible;
     public float maxAngle;
     public float currentAngle;
+    bool itemMelting, startMelting;
+    GameObject theItemMelting;
+    public Image fill, pour;
+    Vector2 originalScale;
+    public float meltSpeed;
     internal override void Start()
     {
         start = transform.position;
         rb = GetComponent<Rigidbody2D>();
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out Item item))
+        {
+            if(crucible.item == null)
+            {
+                crucible.item = item.item;
+                theItemMelting = item.gameObject;
+                originalScale = item.transform.localScale;
+                itemMelting = true;
+                startMelting = true;
+            }
+            else if(crucible.item == item.item)
+            {
+                crucible.item = item.item;
+                theItemMelting = item.gameObject;
+                originalScale = item.transform.localScale;
+                itemMelting = true;
+                startMelting = true;
+            }
+            
+        }
+    }
+    void FixedUpdate()
+    {
+        if (itemMelting)
+        {
+            if (startMelting) 
+            { 
+                originalScale = theItemMelting.transform.localScale;
+                startMelting = false;
+            }
+            fill.color = Color.Lerp(fill.color, crucible.item.color, 0.1f);
+            pour.color = Color.Lerp(pour.color, crucible.item.color, 0.1f);
+            theItemMelting.transform.localScale -= (Vector3)originalScale / meltSpeed;
+            crucible.material += 5 / meltSpeed;
+            if (theItemMelting.transform.localScale.x <= 0.01)
+            {
+                Destroy(theItemMelting);
+                itemMelting = false;
+            }
+        }
     }
     internal override void Update()
     {
@@ -20,7 +69,7 @@ public class CrucibleFollowMouse : FollowMouse
         Vector3 objectPos = transform.position;
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!clickedOn)
             {
@@ -30,12 +79,14 @@ public class CrucibleFollowMouse : FollowMouse
                 RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
                 if (hit.transform) if (hit.transform.gameObject == gameObject) clickedOn = true;
             }
-            else
-            {
-                rb.gravityScale = 0;
-                rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
-            }
+            
 
+        }
+        if(clickedOn)
+        {
+            rb.gravityScale = 0;
+            rb.velocity = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * moveSpeed;
+            if (Input.GetMouseButtonUp(0)) clickedOn = false;
         }
         else
         {

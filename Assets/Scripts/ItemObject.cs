@@ -16,6 +16,7 @@ public class ItemObject : ScriptableObject
     public string itemName;
     public ItemType itemType;
     public Sprite sprite;
+    public Color color;
     public int basePrice;
     public int[] statBoosts;
     public int amount;
