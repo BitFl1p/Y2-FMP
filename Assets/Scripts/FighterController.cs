@@ -8,7 +8,7 @@ public class FighterController : MonoBehaviour
     Rigidbody2D rb;
     public float animTransitionSpeed, maxSpeed, speed, crouchedSpeed, crouchedMaxSpeed, jumpPower;
     public bool isGrounded, playerControlled;
-    Vector2 input;
+    public Vector2 input;
 
     void OnEnable()
     {
@@ -18,9 +18,8 @@ public class FighterController : MonoBehaviour
     void Update()
     {
         if(playerControlled && isGrounded) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x, animTransitionSpeed));
-        anim.SetFloat("Y", input.y);
-        if (Input.GetKeyDown(KeyCode.Space)) input.y = 1;
+        
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) input.y = 1;
         
         if (isGrounded)
         {
@@ -39,9 +38,13 @@ public class FighterController : MonoBehaviour
             if (input.y == 1)
             {
                 isGrounded = false;
+                rb.velocity += new Vector2(input.x * speed, 0);
+                rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
             }
         }
-        
+        anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x, animTransitionSpeed));
+        anim.SetFloat("Y", input.y);
+
 
     }
 }

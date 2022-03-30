@@ -13,7 +13,7 @@ public class AnimationEvents : MonoBehaviour
     {
         FighterController fighter = GetComponentInParent<FighterController>();
         Rigidbody2D rb = fighter.GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(rb.velocity.x, fighter.jumpPower);
+        rb.velocity = new Vector2(fighter.input.x * fighter.maxSpeed * 2, fighter.jumpPower);
     }
     public void JumpHold()
     {
