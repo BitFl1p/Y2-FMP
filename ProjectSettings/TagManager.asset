@@ -16,7 +16,7 @@ TagManager:
   - Item
   - ItemButSpecial
   - hamer
-  - 
+  - FighterPhysics
   - 
   - 
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 775614323
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
