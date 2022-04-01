@@ -31,6 +31,19 @@ public class PlayerData : MonoBehaviour
     public GameObject forge, fight, pause;
     public bool fighting;
     public bool paused;
+    [System.Serializable]
+    public class Controls
+    {
+        public KeyCode punch;
+        public KeyCode kick;
+        
+        public Controls(KeyCode punch, KeyCode kick)
+        {
+            this.punch = punch;
+            this.kick = kick;
+        }
+    }
+    public Controls controls = new Controls(KeyCode.C, KeyCode.X);
     void Update()
     {
         /*if (paused)

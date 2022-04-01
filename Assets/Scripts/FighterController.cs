@@ -23,6 +23,7 @@ public class FighterController : MonoBehaviour
         else side = -1;
         if (playerControlled)
         {
+            if (Input.GetKeyDown(PlayerData.instance.controls.punch)) Attack();
             if (isGrounded) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) input.y = 1;
@@ -49,18 +50,16 @@ public class FighterController : MonoBehaviour
                 rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
             }
         }
-        transform.eulerAngles = new Vector3(0, Mathf.Lerp(transform.eulerAngles.y, (side - 1) * -90, 0.1f), 0);
+        transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, (side - 1) * -90, 0.1f), 0);
         anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x * side, animTransitionSpeed));
         anim.SetFloat("Y", input.y);
-
-
+        anim.SetFloat("Attack", attack);
     }
     public int attack;
-    //public int 
+    public int AttackCount;
     void Attack()
     {
-        anim.SetInteger("Attack", anim.GetInteger("Attack") + 1);
         var state = anim.GetCurrentAnimatorStateInfo(0);
-        if (state.normalizedTime > 0.7 && state.IsName("Attack")) { }
+        if ((state.normalizedTime > 0.7 && state.IsName("Attack")) || input.y < 1) attack++;
     }
 }
