@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [ExecuteAlways]
-public class ParallaxNoTile : MonoBehaviour
+public class Parallax : MonoBehaviour
 {
 
     private Transform cameraTransform;
