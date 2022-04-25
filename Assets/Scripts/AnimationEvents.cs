@@ -23,4 +23,8 @@ public class AnimationEvents : MonoBehaviour
     {
         anim.SetBool("Stagger", false);
     }
+    public void AttackDone()
+    {
+        GetComponentInParent<FighterController>().attack = 0;
+    }
 }

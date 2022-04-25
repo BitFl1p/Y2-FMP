@@ -13,8 +13,6 @@ public class FighterController : MonoBehaviour
     int side;
 
     public int attack;
-    float attackCooldown;
-    public float attackCooldownMax;
 
     void OnEnable()
     {
@@ -23,6 +21,12 @@ public class FighterController : MonoBehaviour
     }
     void Update()
     {
+        anim.SetFloat("Attack", attack);
+        if (attack > 0) 
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            return;
+        }
         
         if (otherPlayer.transform.position.x - transform.position.x > 0) side = 1; 
         else side = -1;
@@ -59,25 +63,17 @@ public class FighterController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, (side - 1) * -90, 0.1f), 0);
         anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x * side, animTransitionSpeed));
         anim.SetFloat("Y", input.y);
-        var state = anim.GetCurrentAnimatorStateInfo(0);
-        if ((state.normalizedTime > 0.7 + (attack-1) && state.IsName("Attack")) || anim.GetFloat("Attack") == 0) 
-        { 
-            if(anim.GetFloat("Attack") < attack)
-            {
-                anim.SetFloat("Attack", attack);
-                attackCooldown = attackCooldownMax;
-            }
-            else if(attackCooldown <= 0)
-            {
-                attack = 0;
-                anim.SetFloat("Attack", attack);
-            }
+        if (Input.GetKeyDown(PlayerData.instance.controls.punch))
+        {
+            Attack();
         }
-        attackCooldown -= Time.deltaTime;
     }
     void Attack()
     {
         var state = anim.GetCurrentAnimatorStateInfo(0);
-        if (!state.IsName("Attack") || state.normalizedTime > 0.7) attack++;
+        if (!state.IsName("Attack")) 
+        { 
+            attack++;
+        }
     }
 }

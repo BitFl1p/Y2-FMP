@@ -35,15 +35,13 @@ public class PlayerData : MonoBehaviour
     public class Controls
     {
         public KeyCode punch;
-        public KeyCode kick;
         
-        public Controls(KeyCode punch, KeyCode kick)
+        public Controls(KeyCode punch)
         {
             this.punch = punch;
-            this.kick = kick;
         }
     }
-    public Controls controls = new Controls(KeyCode.C, KeyCode.X);
+    public Controls controls = new Controls(KeyCode.C);
     void Update()
     {
         /*if (paused)
