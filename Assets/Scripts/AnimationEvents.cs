@@ -19,4 +19,8 @@ public class AnimationEvents : MonoBehaviour
     {
         anim.SetFloat("JumpAnim", 1);
     }
+    public void StaggerDone()
+    {
+        anim.SetBool("Stagger", false);
+    }
 }
