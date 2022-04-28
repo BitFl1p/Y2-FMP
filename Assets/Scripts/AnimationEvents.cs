@@ -27,4 +27,12 @@ public class AnimationEvents : MonoBehaviour
     {
         GetComponentInParent<FighterController>().attack = 0;
     }
+    public void SetCharacterAnim(int index)
+    {
+        anim.SetInteger("Animation",index);
+    }
+    public void DestroyCharacter()
+    {
+        Destroy(transform.parent.gameObject);
+    }
 }

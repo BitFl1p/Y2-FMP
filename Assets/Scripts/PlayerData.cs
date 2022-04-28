@@ -31,7 +31,8 @@ public class PlayerData : MonoBehaviour
     public GameObject forge, fight, pause;
     public bool fighting;
     public bool paused;
-    [System.Serializable]
+    public DialogueManager dMan;
+    [Serializable]
     public class Controls
     {
         public KeyCode punch;
