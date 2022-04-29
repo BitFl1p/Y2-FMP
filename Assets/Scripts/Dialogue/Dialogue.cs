@@ -11,10 +11,12 @@ public class Dialogue : ScriptableObject
         [System.Serializable]
         public class Character
         {
+            public string name;
             public Sprite sprite;
             public Transition animation;
             public Vector2 position;
             public Vector2 scale = Vector2.one;
+            public Vector2 emotionPosition = new Vector2(90, 575);
             public enum Transition
             {
                 Enter,
@@ -25,13 +27,14 @@ public class Dialogue : ScriptableObject
                 Angry
             }
         }
-        
-        public string name1;
-        public string name2;
+        public string name;
+        public float namePos;
         public bool name1Active;
         [TextArea(3, 10)]
-        public string sentence;
+        public string sentence; public List<AudioClip> sounds;
+        [Header(""), Header(""), Header(""), Header(""), Header("")]
         public List<Character> characters;
+        
 
     }
     public List<Sentence> lines;

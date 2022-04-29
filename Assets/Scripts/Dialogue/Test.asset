@@ -13,34 +13,35 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   lines:
-  - name1: 
-    name2: Ragga
+  - name: Goku
+    namePos: -650
     name1Active: 0
-    sentence: Gamer
+    sentence: Hey! It's me! Goku!
+    sounds:
+    - {fileID: 8300000, guid: 519fb9f808d392542aff6a9489087b6b, type: 3}
     characters:
-    - sprite: {fileID: 21300000, guid: 3780ba670609eb4478fd46ded7711810, type: 3}
-      animation: 0
-      position: {x: 575, y: -280}
-      scale: {x: 1, y: 1}
-  - name1: 
-    name2: Ragga
-    name1Active: 0
-    sentence: I'm worse than jin
-    characters:
-    - sprite: {fileID: 21300000, guid: 3780ba670609eb4478fd46ded7711810, type: 3}
-      animation: 4
-      position: {x: 575, y: -280}
-      scale: {x: 1, y: 1}
-  - name1: gin
-    name2: Ragga
-    name1Active: 0
-    sentence: thats true
-    characters:
-    - sprite: {fileID: 21300000, guid: 3780ba670609eb4478fd46ded7711810, type: 3}
-      animation: 2
-      position: {x: 575, y: -280}
-      scale: {x: 1, y: 1}
-    - sprite: {fileID: 21300000, guid: 7da5c4a9a8861c0478232c981a877ec8, type: 3}
+    - name: goku
+      sprite: {fileID: 21300000, guid: c22c733d91fc36843bd197c567cf740b, type: 3}
       animation: 1
       position: {x: -575, y: -280}
       scale: {x: 1, y: 1}
+      emotionPosition: {x: 90, y: 575}
+  - name: Heisenberg
+    namePos: 650
+    name1Active: 0
+    sentence: meffandfatamine
+    sounds:
+    - {fileID: 8300000, guid: c839bd51e05e0b148b49dcced449a6d0, type: 3}
+    characters:
+    - name: goku
+      sprite: {fileID: 21300000, guid: c22c733d91fc36843bd197c567cf740b, type: 3}
+      animation: 2
+      position: {x: -575, y: -280}
+      scale: {x: 1, y: 1}
+      emotionPosition: {x: 90, y: 575}
+    - name: walt
+      sprite: {fileID: 21300000, guid: a3092039124ea3248bae5e2aea53fe37, type: 3}
+      animation: 1
+      position: {x: 575, y: -100}
+      scale: {x: 1.5, y: 1.5}
+      emotionPosition: {x: 90, y: 375}

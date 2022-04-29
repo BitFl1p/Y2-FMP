@@ -19,6 +19,10 @@ public class AnimationEvents : MonoBehaviour
     {
         anim.SetFloat("JumpAnim", 1);
     }
+    public void JumpCancel()
+    {
+        GetComponentInParent<FighterController>().input.y = 0;
+    }
     public void StaggerDone()
     {
         anim.SetBool("Stagger", false);

@@ -5,17 +5,18 @@ using TMPro;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
-{
+{ 
     bool done = true;
     bool faster = false;
     Animator anim;
-    public TMP_Text nameText1;
-    public TMP_Text nameText2;
+    public TMP_Text nameText;
     public TMP_Text dialogueText;
     [HideInInspector] public Queue<Dialogue.Sentence> sentences = new Queue<Dialogue.Sentence>();
     public GameObject charPrefab;
     public GameObject charParent;
     List<GameObject> instantiatedCharacters = new List<GameObject> { };
+    public List<AudioSource> audioSources;
+    public AudioSource letterAudio;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -44,14 +45,21 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         var sentence = sentences.Dequeue();
-        nameText1.text = sentence.name1;
-        nameText2.text = sentence.name2;
+        nameText.text = sentence.name;
+        nameText.transform.parent.localPosition = new Vector2(sentence.namePos, nameText.transform.parent.localPosition.y);
         StopAllCoroutines(); 
+        foreach(var audio in audioSources) audio.Stop();
         SetCharacters(sentence);
+        for (int i = 0; i < sentence.sounds.Count; i++) if (audioSources[i])
+        {
+            audioSources[i].clip = sentence.sounds[i];
+            audioSources[i].Play();
+        }
         StartCoroutine(TypeSentence(sentence.sentence));
     }
     void SetCharacters(Dialogue.Sentence sentence)
     {
+        instantiatedCharacters.RemoveAll(item => item == null);
         foreach (var character in sentence.characters)
         {
             if (instantiatedCharacters.Count == 0)
@@ -60,7 +68,10 @@ public class DialogueManager : MonoBehaviour
                 prefab.transform.localPosition = character.position;
                 prefab.transform.localScale = character.scale;
                 prefab.GetComponentInChildren<Image>().sprite = character.sprite;
+                prefab.name = character.name;
                 prefab.GetComponentInChildren<Animator>().SetInteger("Animation", (int)character.animation);
+                prefab.transform.GetChild(0).GetChild(0).transform.localPosition = character.emotionPosition;
+                prefab.transform.GetChild(0).GetChild(1).transform.localPosition = character.emotionPosition;
                 instantiatedCharacters.Add(prefab);
             }
             else
@@ -68,7 +79,7 @@ public class DialogueManager : MonoBehaviour
                 bool alreadyExists = false;
                 foreach (GameObject currentChar in instantiatedCharacters)
                 {
-                    if (character.sprite == currentChar.GetComponentInChildren<Image>().sprite) 
+                    if (character.name == currentChar.name) 
                     {
                         currentChar.GetComponentInChildren<Animator>().SetInteger("Animation", (int)character.animation);
                         alreadyExists = true; 
@@ -81,10 +92,26 @@ public class DialogueManager : MonoBehaviour
                     prefab.transform.localPosition = character.position;
                     prefab.transform.localScale = character.scale;
                     prefab.GetComponentInChildren<Image>().sprite = character.sprite;
+                    prefab.name = character.name;
                     prefab.GetComponentInChildren<Animator>().SetInteger("Animation", (int)character.animation);
+                    prefab.transform.GetChild(0).GetChild(0).transform.localPosition = character.emotionPosition;
+                    prefab.transform.GetChild(0).GetChild(1).transform.localPosition = character.emotionPosition;
                     instantiatedCharacters.Add(prefab);
                 }
             }
+        }
+        foreach(var instance in instantiatedCharacters)
+        {
+            bool exists = false;
+            foreach(var character in sentence.characters)
+            {
+                if (character.sprite == instance.GetComponentInChildren<Image>().sprite)
+                {
+                    exists = true;
+                }
+                if(exists) break;
+            }
+            if(!exists) instance.GetComponentInChildren<Animator>().SetInteger("Animation", -1);
         }
     }
 
@@ -92,8 +119,9 @@ public class DialogueManager : MonoBehaviour
     {
         foreach(GameObject character in instantiatedCharacters)
         {
-            character.GetComponentInChildren<Animator>().SetInteger("Animation", -1);
+            if(character) character.GetComponentInChildren<Animator>().SetInteger("Animation", -1);
         }
+        foreach (var audio in audioSources) audio.Stop();
         instantiatedCharacters.Clear();
         done = true;
         anim.SetBool("Dialoguing", false);
@@ -106,6 +134,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence)
         {
             dialogueText.text += letter;
+            letterAudio.Play();
             if (!faster) yield return new WaitForSeconds(0.05f);
             else yield return new WaitForSeconds(0.01f);
         }
