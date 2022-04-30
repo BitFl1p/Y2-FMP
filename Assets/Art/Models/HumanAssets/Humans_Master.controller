@@ -888,7 +888,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crouch 0
+  m_Name: CrouchTransition
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1427,7 +1427,7 @@ BlendTree:
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 91e96a78cd9860647a2ae9915e257449, type: 2}
-    m_Threshold: 0
+    m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -1435,7 +1435,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 5db36b4712fa4f14ea445d085128de55, type: 2}
-    m_Threshold: 1
+    m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -1443,7 +1443,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: b4ef3ef32a67e904cb33858966a83db8, type: 2}
-    m_Threshold: 2
+    m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -1451,8 +1451,8 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: StaggerPlace
   m_BlendParameterY: X
-  m_MinThreshold: 0
-  m_MaxThreshold: 2
+  m_MinThreshold: -1
+  m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
@@ -1570,6 +1570,9 @@ AnimatorStateTransition:
     m_EventTreshold: 1
   - m_ConditionMode: 3
     m_ConditionEvent: Attack
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Stagger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4396462313044823649}

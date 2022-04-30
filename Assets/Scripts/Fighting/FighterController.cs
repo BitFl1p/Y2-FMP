@@ -10,7 +10,7 @@ public class FighterController : MonoBehaviour
     public bool isGrounded, playerControlled;
     public Vector2 input;
     public FighterController otherPlayer;
-    int side;
+    [HideInInspector] public int side;
 
     public int attack;
 
@@ -22,12 +22,9 @@ public class FighterController : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Attack", attack);
-        if (attack > 0) 
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            return;
-        }
-        
+        if (isGrounded || attack > 0) anim.SetFloat("JumpAnim", 0);
+        if (attack > 0) return;
+
         if (otherPlayer.transform.position.x - transform.position.x > 0) side = 1; 
         else side = -1;
         if (playerControlled)
@@ -41,7 +38,7 @@ public class FighterController : MonoBehaviour
         if (isGrounded)
         {
 
-            anim.SetFloat("JumpAnim", 0);
+            
             if (input.y == -1)
             {
                 rb.velocity += new Vector2(attack == 0 ? input.x * crouchedSpeed : 0, 0);
@@ -63,10 +60,7 @@ public class FighterController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, (side - 1) * -90, 0.1f), 0);
         anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x * side, animTransitionSpeed));
         anim.SetFloat("Y", input.y);
-        if (Input.GetKeyDown(PlayerData.instance.controls.punch))
-        {
-            Attack();
-        }
+        if (Input.GetKeyDown(PlayerData.instance.controls.punch) && playerControlled) Attack();
     }
     void Attack()
     {

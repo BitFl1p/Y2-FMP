@@ -15,6 +15,12 @@ public class AnimationEvents : MonoBehaviour
         Rigidbody2D rb = fighter.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(fighter.input.x * fighter.maxSpeed * 2, fighter.jumpPower);
     }
+    public void Velocity(float vel)
+    {
+        FighterController fighter = GetComponentInParent<FighterController>();
+        Rigidbody2D rb = fighter.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(vel * fighter.maxSpeed * fighter.side, rb.velocity.y);
+    }
     public void JumpHold()
     {
         anim.SetFloat("JumpAnim", 1);
@@ -29,7 +35,10 @@ public class AnimationEvents : MonoBehaviour
     }
     public void AttackDone()
     {
-        GetComponentInParent<FighterController>().attack = 0;
+        var player = GetComponentInParent<FighterController>();
+        player.input = Vector2.zero;
+        player.isGrounded = true;
+        player.attack = 0;
     }
     public void SetCharacterAnim(int index)
     {
