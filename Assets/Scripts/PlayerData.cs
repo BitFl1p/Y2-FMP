@@ -45,19 +45,27 @@ public class PlayerData : MonoBehaviour
     
     void Update()
     {
-        /*if (paused)
-        {
-            Time.timeScale = 0;
-            pause.SetActive(true);
-        }*/
-        playTime += Time.deltaTime;
+        
+        
+        
         if (menu)
         {
             forge.SetActive(false);
             fight.SetActive(false);
             return;
         }
-        
+        playTime += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Escape)) paused = !paused;
+        if (paused)
+        {
+            Time.timeScale = 0;
+            pause.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            pause.SetActive(false);
+        }
         if (fighting)
         {
             forge.SetActive(false);
@@ -173,6 +181,25 @@ public class SaveManager
         saves.Add(currentSave);
         currentSave.Save($"SaveSlot{saves.IndexOf(currentSave)}");
     }
+    public void UpdateSaves()
+    {
+        var di = new DirectoryInfo(Application.persistentDataPath);
+        foreach(var file in di.GetFiles())
+        {
+            file.Delete();
+        }
+        saves[0].Save("AutoSave");
+        foreach(SaveData save in saves)
+        {
+            if (saves.IndexOf(save) != 0) save.Save($"SaveSlot{saves.IndexOf(save)}");
+        }
+    }
+    public SaveData OverwriteSave(int index)
+    {
+        saves[index] = new SaveData(PlayerData.instance.inventory, PlayerData.instance.money, PlayerData.instance.matchesDone, PlayerData.instance.playTime, PlayerData.instance.controls);
+        saves[index].Save(index ==  0 ? "Autosave" : $"SaveSlot{index}");
+        return saves[index];
+    }
     public void LoadSave(int index)
     {
         if(saves.Count > index)
@@ -183,13 +210,21 @@ public class SaveManager
             PlayerData.instance.controls = saves[index].controls;
         }
     }
+    public void DeleteSave(SaveData save, string fileName)
+    {
+        saves.Remove(save);
+        save.DeleteSave(fileName);
+        UpdateSaves();
+        LookForSaves();
+    }
     bool LocateSave(string name, out SaveData data)
     {
         if (File.Exists(Application.persistentDataPath + $"/{name}.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + $"/{name}.dat", FileMode.Open);
-            data = (SaveData)bf.Deserialize(file);
+            data = (SaveData)bf.Deserialize(file); 
+            file.Close();
             Debug.Log("Save Loaded");
             return true;
         }
@@ -209,7 +244,7 @@ public class SaveManager
         public float playTime;
         public Controls controls = new Controls(KeyCode.C);
         
-        public SaveData(List<(ItemObject item, int amount)> inventory, int money, int matchesDone, float timePlayed, Controls controls)
+        public SaveData(List<(ItemObject item, int amount)> inventory, int money, int matchesDone, float playTime, Controls controls)
         {
             this.inventory = inventory;
             this.money = money;
@@ -240,6 +275,7 @@ public class SaveManager
             if (File.Exists(Application.persistentDataPath + $"/{name}.dat"))
                 File.Delete(Application.persistentDataPath + $"/{name}.dat");
         }
+        
     }
 }
 [Serializable]
