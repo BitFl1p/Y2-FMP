@@ -6,7 +6,6 @@ public class TestDialogue : MonoBehaviour
 {
     public void Test(Dialogue dialogue)
     {
-        Debug.Log("Clicked");
         PlayerData.instance.dMan.StartDialogue(dialogue);
     }
 }
