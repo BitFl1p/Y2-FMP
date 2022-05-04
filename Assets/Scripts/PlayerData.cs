@@ -21,14 +21,16 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
+            instance = this; 
+            DontDestroyOnLoad(instance);
             saveManager = new SaveManager();
             saveManager.LookForSaves();
-            instance = this;
+            
         }
-        DontDestroyOnLoad(instance);
+        
     }
     #endregion
-    public List<(ItemObject item, int amount)> inventory = new List<(ItemObject, int)> { };
+    public List<(ItemStruct item, int amount)> inventory = new List<(ItemStruct, int)> { };
     public int money;
     public int matchesDone;
     public float playTime;
@@ -77,7 +79,7 @@ public class PlayerData : MonoBehaviour
             fight.SetActive(false);
         }
     }
-    void UpdateInventory()
+    public void UpdateInventory()
     {
 
         foreach (InventoryItem uiItem in uiItems) if(uiItem) Destroy(uiItem.gameObject);
@@ -88,14 +90,14 @@ public class PlayerData : MonoBehaviour
             count++;
             var something = Instantiate(uiItemPrefab, inventoryPlace);
             uiItems.Add(something);
-            something.Instantiate(item.item, item.amount);
+            something.Instantiate(new ItemObject(item.item), item.amount);
             if (count % 2 == 1)
             {
-                something.transform.localPosition = new Vector3(-60, (-(count - 1) * 80), 0);
+                something.transform.localPosition = new Vector3(-60, (-(count - 1) * 60), 0);
             }
             else
             {
-                something.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 80), 0);
+                something.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 60), 0);
             }
 
         }
@@ -103,19 +105,19 @@ public class PlayerData : MonoBehaviour
     
     public void AddItem(ItemObject item, int amount)
     {
-        int index = inventory.FindIndex(x => x.item == item);
-        if(index != -1) inventory[index] = (item, inventory[index].amount + amount);
-        else inventory.Add((item, amount));
+        int index = inventory.FindIndex(x => x.item == item.item);
+        if(index != -1) inventory[index] = (item.item, inventory[index].amount + amount);
+        else inventory.Add((item.item, amount));
         UpdateInventory();
     }
     public bool RemoveItem(ItemObject item, int amount)
     {
-        int index = inventory.FindIndex(x => x.item == item);
+        int index = inventory.FindIndex(x => x.item.Equals(item.item));
         if (index != -1)
         {
             if (inventory[index].amount >= amount)
             {
-                inventory[index] = (item, inventory[index].amount - amount);
+                inventory[index] = (item.item, inventory[index].amount - amount);
                 if (inventory[index].amount <= 0) inventory.Remove(inventory[index]);
                 UpdateInventory();
                 return true;
@@ -238,13 +240,13 @@ public class SaveManager
     [Serializable]
     public class SaveData
     {
-        public List<(ItemObject item, int amount)> inventory = new List<(ItemObject, int)> { };
+        public List<(ItemStruct item, int amount)> inventory = new List<(ItemStruct, int)> { };
         public int money;
         public int matchesDone; 
         public float playTime;
         public Controls controls = new Controls(KeyCode.C);
         
-        public SaveData(List<(ItemObject item, int amount)> inventory, int money, int matchesDone, float playTime, Controls controls)
+        public SaveData(List<(ItemStruct item, int amount)> inventory, int money, int matchesDone, float playTime, Controls controls)
         {
             this.inventory = inventory;
             this.money = money;

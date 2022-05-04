@@ -14,13 +14,13 @@ public class ShopItem : MonoBehaviour
     public void Start()
     {
         if (!item) return;
-        priceText.text = (item.basePrice + manager.modifier).ToString();
-        nameText.text = item.itemName;
+        priceText.text = (item.item.basePrice + manager.modifier).ToString();
+        nameText.text = item.item.itemName;
         sprite.sprite = item.sprite;
     }
     public void BuyItem()
     {
-        int price = item.basePrice + manager.modifier;
+        int price = item.item.basePrice + manager.modifier;
         if (price <= PlayerData.instance.money)
         {
             Instantiate(itemPrefab, transform.position, transform.rotation).Instantiate(item);

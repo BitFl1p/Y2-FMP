@@ -13,35 +13,35 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   lines:
-  - name: Goku
-    namePos: -650
+  - name: Walt
+    namePos: 640
     name1Active: 0
-    sentence: Hey! It's me! Goku!
-    sounds:
-    - {fileID: 8300000, guid: 519fb9f808d392542aff6a9489087b6b, type: 3}
-    characters:
-    - name: goku
-      sprite: {fileID: 21300000, guid: c22c733d91fc36843bd197c567cf740b, type: 3}
-      animation: 1
-      position: {x: -575, y: -280}
-      scale: {x: 1, y: 1}
-      emotionPosition: {x: 90, y: 575}
-  - name: Heisenberg
-    namePos: 650
-    name1Active: 0
-    sentence: meffandfatamine
+    sentence: Meffandfatamine
     sounds:
     - {fileID: 8300000, guid: c839bd51e05e0b148b49dcced449a6d0, type: 3}
     characters:
-    - name: goku
-      sprite: {fileID: 21300000, guid: c22c733d91fc36843bd197c567cf740b, type: 3}
-      animation: 2
-      position: {x: -575, y: -280}
-      scale: {x: 1, y: 1}
-      emotionPosition: {x: 90, y: 575}
-    - name: walt
+    - name: Walt
       sprite: {fileID: 21300000, guid: a3092039124ea3248bae5e2aea53fe37, type: 3}
       animation: 1
-      position: {x: 575, y: -100}
+      position: {x: 500, y: 0}
       scale: {x: 1.5, y: 1.5}
-      emotionPosition: {x: 90, y: 375}
+      emotionPosition: {x: 0, y: 0}
+  - name: Goku
+    namePos: -640
+    name1Active: 0
+    sentence: edswuavhfdsuaivhdsiuovjsdiovfjsiovjmdsiofvmfdsiovgjmfdsiovjsdiovgfjmdsiofcnmdsiocjadsnmcidsjncfiudnfdikvcfjdiovdsjvfisdfvjsdiofvcsdjfvciosdjvcsdixkovcjdsiofjdivfsdvedswuavhfdsuaivhdsiuovjsdiovfjsiovjmdsiofvmfdsiovgjmfdsiovjsdiovgfjmdsiofcnmdsiocjadsnmcidsjncfiudnfdikvcfjdiovdsjvfisdfvjsdiofvcsdjfvciosdjvcsdixkovcjdsiofjdivfsdvedswuavhfdsuaivhdsiuovjsdiovfjsiovjmdsiofvmfdsiovgjmfdsiovjsdiovgfjmdsiofcnmdsiocjadsnmcidsjncfiudnfdikvcfjdiovdsjvfisdfvjsdiofvcsdjfvciosdjvcsdixkovcjdsiofjdivfsdv
+    sounds:
+    - {fileID: 0}
+    characters:
+    - name: Walt
+      sprite: {fileID: 21300000, guid: a3092039124ea3248bae5e2aea53fe37, type: 3}
+      animation: 2
+      position: {x: 500, y: 0}
+      scale: {x: 1.5, y: 1.5}
+      emotionPosition: {x: 0, y: 0}
+    - name: Goku
+      sprite: {fileID: 21300000, guid: c22c733d91fc36843bd197c567cf740b, type: 3}
+      animation: 1
+      position: {x: -500, y: -200}
+      scale: {x: 1, y: 1}
+      emotionPosition: {x: 0, y: 0}

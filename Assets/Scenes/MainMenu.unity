@@ -467,7 +467,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Make new Save
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e298bb0ac64a9c94f8d9dc3734eda690, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &310399629
@@ -654,7 +654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.468525, y: -11.759094}
+  m_AnchoredPosition: {x: 17.468536, y: -11.759094}
   m_SizeDelta: {x: -25.06018, y: -62.01013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426088478
@@ -1084,7 +1084,6 @@ MonoBehaviour:
   scroll: {fileID: 1621060638}
   saveMenu: {fileID: 1786480128}
   mainMenu: {fileID: 2095174239}
-  pauseMenu: 0
 --- !u!1 &916741724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2062,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e298bb0ac64a9c94f8d9dc3734eda690, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2127,7 +2126,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1563845167
@@ -2464,6 +2463,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 561915395, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860225793, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860225796, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d8fd86069b747340b3a13939df96b8a, type: 2}
     - target: {fileID: 1124274886714946220, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2531,6 +2542,38 @@ PrefabInstance:
     - target: {fileID: 1124274887498713555, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e298bb0ac64a9c94f8d9dc3734eda690, type: 2}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021070924632289010, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201200095570857798, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e298bb0ac64a9c94f8d9dc3734eda690, type: 2}
+    - target: {fileID: 6201200095570857798, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6304911459814885198, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_AnchoredPosition.x

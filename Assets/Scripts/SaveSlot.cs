@@ -22,12 +22,10 @@ public class SaveSlot : MonoBehaviour
     public void LoadSave()
     {
         saveData.LoadSave();
-        if (loadMainScene) 
-        { 
-            SceneManager.LoadScene(1);
-            PlayerData.instance.menu = false;
-            PlayerData.instance.fighting = false;
-        }
+        SceneManager.LoadScene(1);
+        PlayerData.instance.UpdateInventory();
+        PlayerData.instance.menu = false;
+        PlayerData.instance.fighting = false;
     }
     public void Overwrite()
     {

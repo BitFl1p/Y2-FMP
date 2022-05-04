@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ce9c2893325048928dd0518812b67, type: 3}
   m_Name: Copper
   m_EditorClassIdentifier: 
-  itemName: Copper
-  itemType: 0
   sprite: {fileID: 21300000, guid: d7ce72c828f434845a19f1a73a9c11e7, type: 3}
-  color: {r: 1, g: 0.5442527, b: 0, a: 1}
-  basePrice: 10
-  statBoosts: 0a0000000a000000
-  amount: 0
-  materialAmount: 0
+  item:
+    itemName: Copper
+    itemType: 0
+    basePrice: 10
+    statBoosts: 
+    materialAmount: 5
+    spriteName: Copper
+    color: {r: 0, g: 0, b: 0, a: 0}

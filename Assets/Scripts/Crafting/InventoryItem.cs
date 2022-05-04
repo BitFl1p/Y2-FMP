@@ -35,7 +35,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     }
     private void Update()
     {
-        nameText.text = item.name + ": " + amount;
+        nameText.text = item.item.itemName + ": " + amount;
         sprite.sprite = item.sprite;
         if (amount <= 0) Destroy(gameObject);
     }

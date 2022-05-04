@@ -50,8 +50,9 @@ public class CrucibleFollowMouse : FollowMouse
                 originalScale = theItemMelting.transform.localScale;
                 startMelting = false;
             }
-            fill.color = Color.Lerp(fill.color, crucible.item.color, 0.1f);
-            pour.color = Color.Lerp(pour.color, crucible.item.color, 0.1f);
+            var itemColor = new Color(crucible.item.item.color.r / 255, crucible.item.item.color.g / 255, crucible.item.item.color.b / 255, crucible.item.item.color.a / 255);
+            fill.color = Color.Lerp(fill.color, itemColor, 0.1f);
+            pour.color = Color.Lerp(pour.color, itemColor, 0.1f);
             theItemMelting.transform.localScale -= (Vector3)originalScale / meltSpeed;
             crucible.material += 5 / meltSpeed;
             if (theItemMelting.transform.localScale.x <= 0.01)

@@ -13,12 +13,36 @@ public enum ItemType
 [CreateAssetMenu(fileName = "Item", menuName = "Item", order = 1)]
 public class ItemObject : ScriptableObject
 {
+    public ItemObject(ItemStruct item)
+    {
+        this.item = item;
+        sprite = Resources.Load<Sprite>(item.spriteName);
+    }
+    public Sprite sprite;
+    public ItemStruct item;
+}
+[System.Serializable]
+public struct ItemStruct
+{
     public string itemName;
     public ItemType itemType;
-    public Sprite sprite;
-    public Color color;
     public int basePrice;
     public int[] statBoosts;
-    public int amount;
-    public float materialAmount;
+    public float materialAmount; 
+    public string spriteName;
+    public Color color;
+
+    [System.Serializable]
+    public struct Color
+    {
+        public byte r, g, b, a;
+    }
+    public static bool operator==(ItemStruct first, ItemStruct second)
+    {
+        return first.itemName == second.itemName;
+    }
+    public static bool operator !=(ItemStruct first, ItemStruct second)
+    {
+        return first.itemName != second.itemName;
+    }
 }
