@@ -21,6 +21,7 @@ public class FighterController : MonoBehaviour
     }
     void Update()
     {
+        anim.transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(anim.transform.eulerAngles.y, (side + 1) * 90, 0.1f), 0);
         anim.SetFloat("Attack", attack);
         if (isGrounded || attack > 0) anim.SetFloat("JumpAnim", 0);
         if (attack > 0) return;
@@ -29,7 +30,6 @@ public class FighterController : MonoBehaviour
         else side = -1;
         if (playerControlled)
         {
-            if (Input.GetKeyDown(PlayerData.instance.controls.punch)) Attack();
             if (isGrounded) input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) input.y = 1;
@@ -57,8 +57,8 @@ public class FighterController : MonoBehaviour
                 rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
             }
         }
-        transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, (side - 1) * -90, 0.1f), 0);
-        anim.SetFloat("X", Mathf.Lerp(anim.GetFloat("X"), input.x * side, animTransitionSpeed));
+        
+        anim.SetFloat("X", input.x * side);
         anim.SetFloat("Y", input.y);
         if (Input.GetKeyDown(PlayerData.instance.controls.punch) && playerControlled) Attack();
     }

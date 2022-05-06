@@ -26,6 +26,7 @@ public class SaveSlot : MonoBehaviour
         PlayerData.instance.UpdateInventory();
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = false;
+        PlayerData.instance.paused = false;
     }
     public void Overwrite()
     {
