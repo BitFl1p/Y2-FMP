@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Mould : MonoBehaviour
 {
+    public ItemObject item;
     public float material;
     public float maxMaterial;
     public Slider matSlider;

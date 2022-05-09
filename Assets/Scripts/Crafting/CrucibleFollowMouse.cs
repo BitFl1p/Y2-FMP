@@ -22,17 +22,19 @@ public class CrucibleFollowMouse : FollowMouse
     {
         if(collision.TryGetComponent(out Item item))
         {
-            if(crucible.item == null)
+            if(crucible.material == 0 && crucible.item == null && crucible.mould.item == null)
             {
                 crucible.item = item.item;
+                crucible.mould.item = item.item;
                 theItemMelting = item.gameObject;
                 originalScale = item.transform.localScale;
                 itemMelting = true;
                 startMelting = true;
             }
-            else if(crucible.item == item.item)
+            else if(crucible.item == item.item && crucible.mould.item == item.item)
             {
-                crucible.item = item.item;
+                crucible.item = item.item; 
+                crucible.mould.item = item.item;
                 theItemMelting = item.gameObject;
                 originalScale = item.transform.localScale;
                 itemMelting = true;
@@ -50,7 +52,7 @@ public class CrucibleFollowMouse : FollowMouse
                 originalScale = theItemMelting.transform.localScale;
                 startMelting = false;
             }
-            var itemColor = new Color(crucible.item.item.color.r / 255, crucible.item.item.color.g / 255, crucible.item.item.color.b / 255, crucible.item.item.color.a / 255);
+            var itemColor = crucible.item.item.color.ToUnityColour();
             fill.color = Color.Lerp(fill.color, itemColor, 0.1f);
             pour.color = Color.Lerp(pour.color, itemColor, 0.1f);
             theItemMelting.transform.localScale -= (Vector3)originalScale / meltSpeed;

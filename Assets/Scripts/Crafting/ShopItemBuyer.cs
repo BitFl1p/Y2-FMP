@@ -9,7 +9,6 @@ public class ShopItemBuyer : MonoBehaviour
     public int modifier;
     public List<ItemObject> itemsToSell;
     public List<ShopItem> shopThings;
-    public TMP_Text moneyText;
 
     private void Start()
     {
@@ -34,6 +33,5 @@ public class ShopItemBuyer : MonoBehaviour
             Refresh();
             refresh = false;
         }
-        moneyText.text = "Money: " + PlayerData.instance.money;
     }
 }

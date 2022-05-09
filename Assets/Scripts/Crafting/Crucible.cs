@@ -13,6 +13,7 @@ public class Crucible : MonoBehaviour
     public Transform crucible;
     public CrucibleFollowMouse mouseFollower;
     public Mould mould;
+    public GameObject dumpButton;
     public void DumpMaterial()
     {
         material = 0;
@@ -24,12 +25,14 @@ public class Crucible : MonoBehaviour
     }
     void Update()
     {
+        if (material > 0) dumpButton.SetActive(true);
+        else dumpButton.SetActive(false); 
         material = Mathf.Clamp(material, 0, maxMaterial);
         fill.value = material;
         float angle = mouseFollower.currentAngle;
         float maxAngle = mouseFollower.maxAngle;
         maxAngle -= 360;
-        if (mouseFollower.clickedOn && material > 0)
+        if (mouseFollower.clickedOn && material > 0 && mould.item == item)
         {
             float takeAwayVal = Mathf.Clamp((pourer.value - 0.60f) * 3 * Time.deltaTime, 0, 1);
             material -= takeAwayVal;

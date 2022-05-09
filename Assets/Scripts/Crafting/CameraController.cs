@@ -20,6 +20,11 @@ public class CameraController : MonoBehaviour
         }
     }
     bool roomChanged, pressed;
+
+    public void ChangeRoom(int num)
+    {
+        ActiveRoom = num;
+    }
     
     private void Update()
     {

@@ -90,7 +90,7 @@ public class PlayerData : MonoBehaviour
             count++;
             var something = Instantiate(uiItemPrefab, inventoryPlace);
             uiItems.Add(something);
-            something.Instantiate(new ItemObject(item.item), item.amount);
+            something.Instantiate(Resources.Load<ItemObject>(item.item.itemName), item.amount);
             if (count % 2 == 1)
             {
                 something.transform.localPosition = new Vector3(-60, (-(count - 1) * 60), 0);

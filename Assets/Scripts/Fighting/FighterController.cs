@@ -6,14 +6,24 @@ public class FighterController : MonoBehaviour
 {
     Animator anim;
     Rigidbody2D rb;
-    public float animTransitionSpeed, maxSpeed, speed, crouchedSpeed, crouchedMaxSpeed, jumpPower;
+    public float animTransitionSpeed, maxSpeed, speed, crouchedSpeed, crouchedMaxSpeed, jumpPower, drag;
     public bool isGrounded, playerControlled;
     public Vector2 input;
     public FighterController otherPlayer;
     [HideInInspector] public int side;
 
     public int attack;
-
+    public Vector2 Drag(Vector2 vector, float drag)
+    {
+        if (vector.x > drag) vector.x -= drag;
+        else if (vector.x < -drag) vector.x += drag;
+        if (vector.x < drag * 1.2 && vector.x > -drag * 1.2)
+        {
+            vector.x = 0;
+            return vector;
+        }
+        return vector;
+    }
     void OnEnable()
     {
         anim = GetComponentInChildren<Animator>();
@@ -23,6 +33,7 @@ public class FighterController : MonoBehaviour
     {
         anim.transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(anim.transform.eulerAngles.y, (side + 1) * 90, 0.1f), 0);
         anim.SetFloat("Attack", attack);
+        if (isGrounded) rb.velocity = Drag(rb.velocity, drag);
         if (isGrounded || attack > 0) anim.SetFloat("JumpAnim", 0);
         if (attack > 0) return;
 
@@ -35,7 +46,7 @@ public class FighterController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) input.y = 1;
         }
         
-        if (isGrounded)
+        if (isGrounded && !anim.GetBool("Stagger"))
         {
 
             
