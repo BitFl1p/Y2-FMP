@@ -25,27 +25,27 @@ public class Sword : MonoBehaviour
                 hitCount = maxHitCount;
                 foreach (ContactPoint2D contact in collision.contacts)
                 {
-                    Vector3Int tilePos = tilemap.WorldToCell(contact.point);
-                    List<Vector3Int> tilesToRemove = new List<Vector3Int> { tilePos };
+                    Vector2Int tilePos = (Vector2Int)tilemap.WorldToCell(contact.point);
+                    List<Vector2Int> tilesToRemove = new List<Vector2Int> { tilePos };
                     if (contact.relativeVelocity.magnitude <= 10)
                     {
                         return;
                     }
                     else if (contact.relativeVelocity.magnitude <= 20)
                     {
-                        for (int i = -2; i <= 2; i++) tilesToRemove.Add(tilePos + new Vector3Int(i, 0, 0));
+                        for (int i = -2; i <= 2; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                     }
                     else if (contact.relativeVelocity.magnitude <= 30)
                     {
-                        for (int i = -3; i <= 3; i++) tilesToRemove.Add(tilePos + new Vector3Int(i, 0, 0));
+                        for (int i = -3; i <= 3; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                     }
                     else if (contact.relativeVelocity.magnitude <= 40)
                     {
-                        for (int i = -4; i <= 4; i++) tilesToRemove.Add(tilePos + new Vector3Int(i, 0, 0));
+                        for (int i = -4; i <= 4; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                     }
                     else
                     {
-                        for (int i = -5; i <= 5; i++) tilesToRemove.Add(tilePos + new Vector3Int(i, 0, 0));
+                        for (int i = -5; i <= 5; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                     }
                     foreach (Vector3Int tile in tilesToRemove)
                     {
