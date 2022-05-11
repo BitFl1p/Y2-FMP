@@ -44,6 +44,8 @@ public class PlayerData : MonoBehaviour
     public bool paused;
     public bool menu;
     public DialogueManager dMan;
+
+    public bool playerWon, playerLost;
     
     void Update()
     {
