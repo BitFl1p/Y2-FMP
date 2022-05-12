@@ -29,13 +29,13 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
         if(PlayerData.instance.RemoveItem(item, 1))
         {
             var bruh = Instantiate(itemPrefab, (Vector2)transform.position, transform.rotation);
-            bruh.Instantiate(item);
+            bruh.Instantiate(Instantiate(item));
             bruh.clickedOn = true;
         }
     }
     private void Update()
     {
-        nameText.text = item.item.itemName + ": " + amount;
+        nameText.text = $"{(item.item.itemWeight != ItemWeight.NA ? item.item.itemWeight.ToString() : "")} {item.item.itemName} : {amount}";
         sprite.sprite = item.sprite;
         if (amount <= 0) Destroy(gameObject);
     }

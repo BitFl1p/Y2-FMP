@@ -62,8 +62,11 @@ public class PlayerData : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) paused = !paused;
         if (paused)
         {
-            Time.timeScale = 0;
+            forge.SetActive(false);
+            fight.SetActive(false); 
             pause.SetActive(true);
+            Time.timeScale = 0;
+            return;
         }
         else
         {
@@ -92,7 +95,9 @@ public class PlayerData : MonoBehaviour
             count++;
             var something = Instantiate(uiItemPrefab, inventoryPlace);
             uiItems.Add(something);
-            something.Instantiate(Resources.Load<ItemObject>(item.item.itemName), item.amount);
+            var itemToAdd = Instantiate(Resources.Load<ItemObject>(item.item.itemName));
+            itemToAdd.item = item.item;
+            something.Instantiate(itemToAdd, item.amount);
             if (count % 2 == 1)
             {
                 something.transform.localPosition = new Vector3(-60, (-(count - 1) * 60), 0);
@@ -114,7 +119,7 @@ public class PlayerData : MonoBehaviour
     }
     public bool RemoveItem(ItemObject item, int amount)
     {
-        int index = inventory.FindIndex(x => x.item.Equals(item.item));
+        int index = inventory.FindIndex(x => x.item == item.item);
         if (index != -1)
         {
             if (inventory[index].amount >= amount)
@@ -134,7 +139,7 @@ public class PlayerData : MonoBehaviour
         {
             if (!item.clickedOn)
             {
-                AddItem(item.item, 1);
+                AddItem(Instantiate(item.item), 1);
                 Destroy(item.gameObject);
             }
         }
@@ -166,14 +171,11 @@ public class SaveManager
     }
     public void LookForSaves()
     {
-        Debug.Log(Application.persistentDataPath);
         saves.Clear();
         if (LocateSave("AutoSave", out SaveData data))
         {
             saves.Add(data);
-            Debug.Log(data.money);
         }
-        else Debug.Log("No autosave present");
         for ( int i = 1; ; i++ )
             if(LocateSave($"SaveSlot{i}", out data)) 
                 saves.Add(data);
@@ -229,12 +231,10 @@ public class SaveManager
             FileStream file = File.Open(Application.persistentDataPath + $"/{name}.dat", FileMode.Open);
             data = (SaveData)bf.Deserialize(file); 
             file.Close();
-            Debug.Log("Save Loaded");
             return true;
         }
         else
         {
-            Debug.Log("There is no save data!");
             data = null;
             return false;
         }

@@ -12,6 +12,7 @@ public enum ItemType
 }
 public enum ItemWeight
 {
+    NA,
     Light,
     Balanced,
     Heavy
@@ -46,11 +47,24 @@ public struct ItemStruct
     }
     public static bool operator==(ItemStruct first, ItemStruct second)
     {
-        return first.itemName == second.itemName;
+        return first.itemName == second.itemName &&
+               first.itemType == second.itemType &&
+               first.itemWeight == second.itemWeight &&
+               first.materialAmount == second.materialAmount &&
+               first.damage == second.damage &&
+               first.speed == second.speed &&
+               first.weaponNumber == second.weaponNumber;
+
     }
     public static bool operator !=(ItemStruct first, ItemStruct second)
     {
-        return first.itemName != second.itemName;
+        return first.itemName != second.itemName ||
+               first.itemType != second.itemType ||
+               first.itemWeight != second.itemWeight ||
+               first.materialAmount != second.materialAmount ||
+               first.damage != second.damage ||
+               first.speed != second.speed ||
+               first.weaponNumber != second.weaponNumber;
     }
 
     public override bool Equals(object obj)

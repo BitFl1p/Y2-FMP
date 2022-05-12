@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68ce9c2893325048928dd0518812b67, type: 3}
-  m_Name: Copper
+  m_Name: Copper Blade
   m_EditorClassIdentifier: 
-  sprite: {fileID: -5837177561311991975, guid: 0f60c63381be6c543bc2dd72eff2bc38, type: 3}
+  sprite: {fileID: 21300000, guid: dc2759c8b4d2ff44f8dda819ccd7e4f3, type: 3}
   item:
-    itemName: Copper
-    itemType: 0
+    itemName: Copper Blade
+    itemType: 1
     itemWeight: 0
-    basePrice: 10
-    materialAmount: 5
-    damage: 1.2
+    basePrice: 25
+    materialAmount: 0
+    damage: 2
     speed: 1
     weaponNumber: 0
     color:
-      r: 1
-      g: 0.504
+      r: 0
+      g: 0
       b: 0
-      a: 1
+      a: 0

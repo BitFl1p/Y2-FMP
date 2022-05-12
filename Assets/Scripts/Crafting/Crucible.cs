@@ -18,6 +18,8 @@ public class Crucible : MonoBehaviour
     {
         material = 0;
         item = null;
+        mould.item = null;
+        mould.material = 0;
     }
     void Start()
     {

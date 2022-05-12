@@ -5,6 +5,11 @@ using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+    void Awake()
+    {
+        instance = this;
+    }
     public List<CinemachineVirtualCamera> rooms;
     int activeRoom = 2;
     public int ActiveRoom

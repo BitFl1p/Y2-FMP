@@ -9,6 +9,10 @@ public class SwordCheck : MonoBehaviour
     bool swordHere;
     public GameObject button;
     public Tilemap sword;
+    public Item itemPrefab;
+    public ItemObject swordMaterial;
+    public int desiredHeight;
+    public ItemWeight bladeWeight;
     void Start()
     {
         GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0);
@@ -52,9 +56,15 @@ public class SwordCheck : MonoBehaviour
                     } 
                 }
             }
-            consistency = 1 - Mathf.Abs(maxHeight - (count / total));
+            total = Mathf.Abs(total) / desiredHeight;
+            consistency = (float) System.Math.Round(1 - (count / total), 1);
         }
-
+        Item item = Instantiate(itemPrefab);
+        item.Instantiate(Instantiate(Resources.Load<ItemObject>($"{swordMaterial.item.itemName} Blade")));
+        item.item.item.damage =  swordMaterial.item.damage * consistency;
+        item.item.item.speed = swordMaterial.item.speed * consistency;
+        item.item.item.itemWeight = bladeWeight;
+        Destroy(transform.parent.gameObject);
         Debug.Log(consistency);
     }
 }
