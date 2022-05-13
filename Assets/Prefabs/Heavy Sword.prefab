@@ -123,11 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d21afee67bbf1a4186038c6286d9553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  sword: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  button: {fileID: 7027050735997051927}
+  sword: {fileID: 4676656781394988487}
+  itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
   swordMaterial: {fileID: 0}
-  desiredHeight: 0
+  desiredHeight: 6
+  bladeWeight: 3
 --- !u!1 &1340031798717409035
 GameObject:
   m_ObjectHideFlags: 0

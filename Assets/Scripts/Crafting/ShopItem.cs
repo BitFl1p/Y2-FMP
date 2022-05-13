@@ -25,6 +25,7 @@ public class ShopItem : MonoBehaviour
         {
             Instantiate(itemPrefab, transform.position, transform.rotation).Instantiate(item);
             PlayerData.instance.money -= price;
+            manager.Refresh();
         }
     }
 }

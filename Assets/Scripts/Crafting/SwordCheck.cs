@@ -57,7 +57,7 @@ public class SwordCheck : MonoBehaviour
                 }
             }
             total = Mathf.Abs(total) / desiredHeight;
-            consistency = (float) System.Math.Round(1 - (count / total), 1);
+            consistency = (float) System.Math.Round((count / total), 1);
         }
         Item item = Instantiate(itemPrefab);
         item.Instantiate(Instantiate(Resources.Load<ItemObject>($"{swordMaterial.item.itemName} Blade")));

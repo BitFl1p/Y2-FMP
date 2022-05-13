@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : FollowMouse
 {
     public ItemObject item;
+    public Item itemPrefab;
     public void Instantiate(ItemObject item)
     {
         this.item = item;
@@ -43,6 +44,35 @@ public class Item : FollowMouse
             gameObject.layer = 7;
             rb.gravityScale = 9.8f;
             clickedOn = false;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (clickedOn)
+        {
+            if (collision.gameObject.TryGetComponent(out Item otherItem))
+            {
+
+                if (item.item.itemType == ItemType.Blade && otherItem.item.item.itemType == ItemType.Hilt || item.item.itemType == ItemType.Hilt && otherItem.item.item.itemType == ItemType.Blade)
+                {
+                    var instance = Instantiate(itemPrefab);
+                    string name;
+                    if (item.item.itemType == ItemType.Blade)
+                    {
+                        instance.item.item.itemWeight = item.item.itemWeight;
+                        name = $"{item.item.itemName.Split(' ')[0]} Sword";
+                    }
+                    else
+                    {
+                        instance.item.item.itemWeight = otherItem.item.item.itemWeight;
+                        name = $"{otherItem.item.item.itemName.Split(' ')[0]} Sword";
+                    }
+                    instance.Instantiate(Object.Instantiate(Resources.Load<ItemObject>(name)));
+                    instance.item.item.damage = item.item.damage * otherItem.item.item.damage;
+                    instance.item.item.speed = item.item.speed * otherItem.item.item.speed;
+                    
+                }
+            }
         }
     }
 }

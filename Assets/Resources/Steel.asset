@@ -17,10 +17,10 @@ MonoBehaviour:
     itemName: Steel
     itemType: 0
     itemWeight: 0
-    basePrice: 0
+    basePrice: 30
     materialAmount: 5
-    damage: 0
-    speed: 0
+    damage: 5
+    speed: 1
     weaponNumber: 0
     color:
       r: 0.5

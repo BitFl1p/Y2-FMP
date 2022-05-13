@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+using TMPro;
 public class PlayerData : MonoBehaviour
 {
     #region Singleton Shit
@@ -32,6 +32,7 @@ public class PlayerData : MonoBehaviour
     #endregion
     public List<(ItemStruct item, int amount)> inventory = new List<(ItemStruct, int)> { };
     public int money;
+    public TMP_Text moneyText;
     public int matchesDone;
     public float playTime;
     public Controls controls = new Controls(KeyCode.C);
@@ -73,6 +74,7 @@ public class PlayerData : MonoBehaviour
             Time.timeScale = 1;
             pause.SetActive(false);
         }
+        moneyText.text = $"{money}";
         if (fighting)
         {
             forge.SetActive(false);
@@ -100,11 +102,11 @@ public class PlayerData : MonoBehaviour
             something.Instantiate(itemToAdd, item.amount);
             if (count % 2 == 1)
             {
-                something.transform.localPosition = new Vector3(-60, (-(count - 1) * 60), 0);
+                something.transform.localPosition = new Vector3(-60, (200 -(count - 1) * 60), 0);
             }
             else
             {
-                something.transform.localPosition = new Vector3(60, (-(count / 2 - 1) * 60), 0);
+                something.transform.localPosition = new Vector3(60, (200 - (count - 2) * 60), 0);
             }
 
         }

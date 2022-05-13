@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6746605795562293843}
         m_TargetAssemblyTypeName: SwordCheck, Assembly-CSharp
         m_MethodName: GiveBlade
         m_Mode: 1
@@ -491,11 +491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d21afee67bbf1a4186038c6286d9553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  sword: {fileID: 0}
-  itemPrefab: {fileID: 0}
+  button: {fileID: 588991039896810933}
+  sword: {fileID: 5088524648529899431}
+  itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
   swordMaterial: {fileID: 0}
-  desiredHeight: 0
+  desiredHeight: 3
+  bladeWeight: 2
 --- !u!1 &2570835055095898874
 GameObject:
   m_ObjectHideFlags: 0

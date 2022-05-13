@@ -102,6 +102,7 @@ MonoBehaviour:
   clickedOn: 0
   zOffset: 0
   item: {fileID: 0}
+  itemPrefab: {fileID: 6974806010415599300}
 --- !u!70 &6974806010415599289
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

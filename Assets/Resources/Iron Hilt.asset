@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ce9c2893325048928dd0518812b67, type: 3}
   m_Name: Iron Hilt
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 01563842b19946f43a6cbc3f75223ff4, type: 3}
+  sprite: {fileID: 21300000, guid: ab54eceb9690e01459ebe91d2c65e8a4, type: 3}
   item:
     itemName: Iron Hilt
     itemType: 3
