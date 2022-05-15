@@ -12,7 +12,8 @@ public class PlayerStats : MonoBehaviour
     Animator anim;
     private void Start()
     {
-        foreach (var weapon in weapons) weapon.SetActive(false);
+        foreach (var weapon in weapons) weapon.SetActive(false); 
+        anim = GetComponentInChildren<Animator>();
         if (GetComponent<FighterController>().playerControlled)
         {
             healthSlider = PlayerData.instance.fight.GetComponent<FightManager>().player1Health; 
@@ -25,7 +26,7 @@ public class PlayerStats : MonoBehaviour
             healthSlider = PlayerData.instance.fight.GetComponent<FightManager>().player2Health;
             anim.SetFloat("Weapon", PlayerData.instance.currentFight.enemyWeapon);
         }
-        anim = GetComponentInChildren<Animator>(); 
+        
         
         
         

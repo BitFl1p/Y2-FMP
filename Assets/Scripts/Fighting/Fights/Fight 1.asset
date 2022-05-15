@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8864af309768d848ae88bee0f504294, type: 3}
   m_Name: Fight 1
   m_EditorClassIdentifier: 
+  fightNumber: 1
   reward: 30
   enemyWeapon: 0
   dialogue: {fileID: 11400000, guid: e010714aab52e084c8efd3fc3b7fda3c, type: 2}

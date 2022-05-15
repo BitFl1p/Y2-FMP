@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class FightHolder : MonoBehaviour
@@ -15,7 +16,8 @@ public class FightHolder : MonoBehaviour
         if (fight.dialogue != null)
         {
             PlayerData.instance.dMan.StartDialogue(fight.dialogue);
-            while (PlayerData.instance.dMan.GetComponent<Animator>().GetBool("Dialoguing"))
+            var thing = PlayerData.instance.dMan.dialogueText.transform.parent.gameObject;
+            while (PlayerData.instance.dMan.GetComponent<Animator>().GetBool("Dialoguing") || thing.activeSelf)
             {
                 yield return null;
             }

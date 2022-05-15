@@ -6,6 +6,8 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class PlayerData : MonoBehaviour
 {
     #region Singleton Shit
@@ -58,6 +60,18 @@ public class PlayerData : MonoBehaviour
         matchesDone = 0;
         playTime = 0;
     }
+    public IEnumerator LoadFightScene()
+    {
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
+        Clear();
+        menu = true;
+        fighting = false;
+        paused = false;
+        SceneManager.LoadSceneAsync(4);
+        yield return null;
+    }
     void Update()
     {
         
@@ -88,13 +102,9 @@ public class PlayerData : MonoBehaviour
         {
             
             forge.SetActive(false);
-            if (playerLost)
+            if (playerLost || playerWon)
             {
-
-            }
-            else if (playerWon)
-            {
-
+                StartCoroutine(LoadFightScene());
             }
             else
             {
