@@ -17,7 +17,7 @@ public enum ItemWeight
     Balanced,
     Heavy
 }
-[CreateAssetMenu(fileName = "Item", menuName = "Item", order = 1)]
+[CreateAssetMenu(fileName = "Item", menuName = "Special/Item")]
 public class ItemObject : ScriptableObject
 {
     public Sprite sprite;
@@ -32,7 +32,7 @@ public struct ItemStruct
     public int basePrice;
     public float materialAmount;
     public float damage, speed;
-    public float weaponNumber;
+    public int weaponNumber;
     public Color color;
 
     [System.Serializable]

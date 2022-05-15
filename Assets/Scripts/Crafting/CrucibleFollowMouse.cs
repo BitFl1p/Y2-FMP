@@ -22,23 +22,26 @@ public class CrucibleFollowMouse : FollowMouse
     {
         if(collision.TryGetComponent(out Item item))
         {
-            if(crucible.material == 0 && crucible.item == null && crucible.mould.item == null)
+            if (item.item.item.itemType == ItemType.Metal)
             {
-                crucible.item = item.item;
-                crucible.mould.item = item.item;
-                theItemMelting = item.gameObject;
-                originalScale = item.transform.localScale;
-                itemMelting = true;
-                startMelting = true;
-            }
-            else if(crucible.item == item.item && crucible.mould.item == item.item)
-            {
-                crucible.item = item.item; 
-                crucible.mould.item = item.item;
-                theItemMelting = item.gameObject;
-                originalScale = item.transform.localScale;
-                itemMelting = true;
-                startMelting = true;
+                if (crucible.material == 0 && crucible.item == null && crucible.mould.item == null)
+                {
+                    crucible.item = item.item;
+                    crucible.mould.item = item.item;
+                    theItemMelting = item.gameObject;
+                    originalScale = item.transform.localScale;
+                    itemMelting = true;
+                    startMelting = true;
+                }
+                else if (crucible.item == item.item && crucible.mould.item == item.item)
+                {
+                    crucible.item = item.item;
+                    crucible.mould.item = item.item;
+                    theItemMelting = item.gameObject;
+                    originalScale = item.transform.localScale;
+                    itemMelting = true;
+                    startMelting = true;
+                }
             }
             
         }

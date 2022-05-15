@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ce9c2893325048928dd0518812b67, type: 3}
   m_Name: Steel Blade
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 786ea324e5951a2459f8f10a37de59d4, type: 3}
+  sprite: {fileID: 21300000, guid: 07d39056e61806f4cb21e27e6c579313, type: 3}
   item:
     itemName: Steel Blade
     itemType: 1

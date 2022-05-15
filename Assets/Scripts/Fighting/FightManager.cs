@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public class FightManager : MonoBehaviour
 {
-    public Slider player1Health, player2Health;
+    public Slider player1Health, player2Health; 
 }

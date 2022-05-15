@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ce9c2893325048928dd0518812b67, type: 3}
   m_Name: Iron Sword
   m_EditorClassIdentifier: 
-  sprite: {fileID: 7381098287199411613, guid: 0f60c63381be6c543bc2dd72eff2bc38, type: 3}
+  sprite: {fileID: 2924082833364022499, guid: 0f60c63381be6c543bc2dd72eff2bc38, type: 3}
   item:
     itemName: Iron Sword
     itemType: 2

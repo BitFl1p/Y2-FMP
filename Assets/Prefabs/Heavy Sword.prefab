@@ -6232,7 +6232,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1997761058001721156}
         m_TargetAssemblyTypeName: SwordCheck, Assembly-CSharp
         m_MethodName: GiveBlade
         m_Mode: 1

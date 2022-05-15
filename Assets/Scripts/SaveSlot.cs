@@ -21,12 +21,28 @@ public class SaveSlot : MonoBehaviour
     }
     public void LoadSave()
     {
+        StartCoroutine(LoadSaveCoroutine());
+    }
+    public IEnumerator LoadSaveCoroutine()
+    {
+        SceneManager.LoadSceneAsync(3); 
+        if(SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded)  SceneManager.UnloadSceneAsync(2);
         saveData.LoadSave();
-        SceneManager.LoadScene(1);
-        PlayerData.instance.UpdateInventory();
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = false;
         PlayerData.instance.paused = false;
+        var load = SceneManager.LoadSceneAsync(1);
+        while (load.progress != 1)
+        {
+            yield return null;
+        }
+        PlayerData.instance.UpdateInventory();
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
+        if (SceneManager.GetSceneByBuildIndex(3).isLoaded)  SceneManager.UnloadSceneAsync(3); 
+        yield return null;
     }
     public void Overwrite()
     {

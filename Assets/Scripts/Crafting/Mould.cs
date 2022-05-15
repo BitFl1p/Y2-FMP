@@ -6,6 +6,7 @@ using TMPro;
 
 public class Mould : MonoBehaviour
 {
+    public Transform hammer;
     public Crucible crucible;
     public ItemObject item;
     public float material, lastMaterial;
@@ -57,6 +58,7 @@ public class Mould : MonoBehaviour
         var sword = Instantiate(lightSwordPrefab, swordOrigin);
         var checkLine = sword.GetComponentInChildren<SwordCheck>();
         checkLine.swordMaterial = item;
+        hammer.position = new Vector2(hammer.position.x, 2);
         CameraController.instance.ActiveRoom = 2;
         crucible.DumpMaterial();
     }
@@ -66,6 +68,7 @@ public class Mould : MonoBehaviour
         var sword = Instantiate(balancedSwordPrefab, swordOrigin);
         var checkLine = sword.GetComponentInChildren<SwordCheck>();
         checkLine.swordMaterial = item;
+        hammer.position = new Vector2(hammer.position.x, 2);
         CameraController.instance.ActiveRoom = 2; 
         crucible.DumpMaterial();
     }
@@ -75,6 +78,7 @@ public class Mould : MonoBehaviour
         var sword = Instantiate(heavySwordPrefab, swordOrigin);
         var checkLine = sword.GetComponentInChildren<SwordCheck>();
         checkLine.swordMaterial = item;
+        hammer.position = new Vector2(hammer.position.x, 2);
         CameraController.instance.ActiveRoom = 2;
         crucible.DumpMaterial();
     }

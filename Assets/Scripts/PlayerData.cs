@@ -31,12 +31,15 @@ public class PlayerData : MonoBehaviour
     }
     #endregion
     public List<(ItemStruct item, int amount)> inventory = new List<(ItemStruct, int)> { };
+    public ItemStruct equipped;
     public int money;
     public TMP_Text moneyText;
     public int matchesDone;
     public float playTime;
     public Controls controls = new Controls(KeyCode.C);
 
+    public InventoryItem uiEquipped;
+    public Item itemPrefab;
     public List<InventoryItem> uiItems;
     public InventoryItem uiItemPrefab;
     public Transform inventoryPlace;
@@ -45,9 +48,16 @@ public class PlayerData : MonoBehaviour
     public bool paused;
     public bool menu;
     public DialogueManager dMan;
-
+    public Fight currentFight;
     public bool playerWon, playerLost;
-    
+    public void Clear()
+    {
+        inventory = new List<(ItemStruct, int)> { };
+        equipped = Resources.Load<ItemObject>("NULL").item;
+        money = 100;
+        matchesDone = 0;
+        playTime = 0;
+    }
     void Update()
     {
         
@@ -71,17 +81,29 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
             pause.SetActive(false);
         }
         moneyText.text = $"{money}";
         if (fighting)
         {
+            
             forge.SetActive(false);
-            fight.SetActive(true);
+            if (playerLost)
+            {
+
+            }
+            else if (playerWon)
+            {
+
+            }
+            else
+            {
+                fight.SetActive(true);
+            }
         }
         else
         {
+            Time.timeScale = 1;
             forge.SetActive(true);
             fight.SetActive(false);
         }
@@ -102,14 +124,32 @@ public class PlayerData : MonoBehaviour
             something.Instantiate(itemToAdd, item.amount);
             if (count % 2 == 1)
             {
-                something.transform.localPosition = new Vector3(-60, (200 -(count - 1) * 60), 0);
+                something.transform.localPosition = new Vector3(-60, (150 -(count - 1) * 60), 0);
             }
             else
             {
-                something.transform.localPosition = new Vector3(60, (200 - (count - 2) * 60), 0);
+                something.transform.localPosition = new Vector3(60, (150 - (count - 2) * 60), 0);
             }
 
         }
+        if (equipped.weaponNumber != 0) uiEquipped.item = Resources.Load<ItemObject>(equipped.itemName);
+    }
+    public bool EquipItem(ItemObject item)
+    {
+        if (item.item.itemType == ItemType.Weapon)
+        {
+            if (equipped.weaponNumber != 0)
+            {
+                var itemInstance = Instantiate(itemPrefab, (Vector2)uiEquipped.transform.position, uiEquipped.transform.rotation);
+                itemInstance.SetItem(Instantiate(Resources.Load<ItemObject>(equipped.itemName)));
+                itemInstance.item.item = equipped;
+                itemInstance.clickedOn = true;
+            }
+            equipped = item.item;
+            UpdateInventory();
+            return true;
+        }
+        return false;
     }
     
     public void AddItem(ItemObject item, int amount)
@@ -141,7 +181,8 @@ public class PlayerData : MonoBehaviour
         {
             if (!item.clickedOn)
             {
-                AddItem(Instantiate(item.item), 1);
+                if (item.transform.position.y < 2.7f) AddItem(Instantiate(item.item), 1);
+                else if (!EquipItem(item.item)) AddItem(Instantiate(item.item), 1);
                 Destroy(item.gameObject);
             }
         }
@@ -158,6 +199,7 @@ public class SaveManager
         if (saves.Count >= 1) 
             saves[0] = new SaveData(
                 PlayerData.instance.inventory, 
+                PlayerData.instance.equipped, 
                 PlayerData.instance.money, 
                 PlayerData.instance.matchesDone, 
                 PlayerData.instance.playTime, 
@@ -165,6 +207,7 @@ public class SaveManager
         else 
             saves.Add(new SaveData(
                 PlayerData.instance.inventory, 
+                PlayerData.instance.equipped,
                 PlayerData.instance.money, 
                 PlayerData.instance.matchesDone, 
                 PlayerData.instance.playTime, 
@@ -185,7 +228,7 @@ public class SaveManager
     }
     public void ManualSave()
     {
-        var currentSave = new SaveData(PlayerData.instance.inventory, PlayerData.instance.money, PlayerData.instance.matchesDone, PlayerData.instance.playTime, PlayerData.instance.controls);
+        var currentSave = new SaveData(PlayerData.instance.inventory, PlayerData.instance.equipped, PlayerData.instance.money, PlayerData.instance.matchesDone, PlayerData.instance.playTime, PlayerData.instance.controls);
         saves.Add(currentSave);
         currentSave.Save($"SaveSlot{saves.IndexOf(currentSave)}");
     }
@@ -196,7 +239,7 @@ public class SaveManager
         {
             file.Delete();
         }
-        saves[0].Save("AutoSave");
+        //saves[0].Save("AutoSave");
         foreach(SaveData save in saves)
         {
             if (saves.IndexOf(save) != 0) save.Save($"SaveSlot{saves.IndexOf(save)}");
@@ -204,7 +247,7 @@ public class SaveManager
     }
     public SaveData OverwriteSave(int index)
     {
-        saves[index] = new SaveData(PlayerData.instance.inventory, PlayerData.instance.money, PlayerData.instance.matchesDone, PlayerData.instance.playTime, PlayerData.instance.controls);
+        saves[index] = new SaveData(PlayerData.instance.inventory, PlayerData.instance.equipped, PlayerData.instance.money, PlayerData.instance.matchesDone, PlayerData.instance.playTime, PlayerData.instance.controls);
         saves[index].Save(index ==  0 ? "Autosave" : $"SaveSlot{index}");
         return saves[index];
     }
@@ -245,14 +288,16 @@ public class SaveManager
     public class SaveData
     {
         public List<(ItemStruct item, int amount)> inventory = new List<(ItemStruct, int)> { };
+        public ItemStruct equipped;
         public int money;
         public int matchesDone; 
         public float playTime;
         public Controls controls = new Controls(KeyCode.C);
         
-        public SaveData(List<(ItemStruct item, int amount)> inventory, int money, int matchesDone, float playTime, Controls controls)
+        public SaveData(List<(ItemStruct item, int amount)> inventory, ItemStruct equipped, int money, int matchesDone, float playTime, Controls controls)
         {
             this.inventory = inventory;
+            this.equipped = equipped;
             this.money = money;
             this.matchesDone = matchesDone;
             this.playTime = playTime;
@@ -261,6 +306,7 @@ public class SaveManager
         public void LoadSave()
         {
             PlayerData.instance.inventory = inventory;
+            PlayerData.instance.UpdateInventory();
             PlayerData.instance.money = money;
             PlayerData.instance.matchesDone = matchesDone;
             PlayerData.instance.playTime = playTime;
@@ -273,7 +319,6 @@ public class SaveManager
             FileStream file = File.Create(Application.persistentDataPath + $"/{name}.dat");
             bf.Serialize(file, this);
             file.Close();
-            Debug.Log("Game data saved!");
         }
 
         public void DeleteSave(string name)

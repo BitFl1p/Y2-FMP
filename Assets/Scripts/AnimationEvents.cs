@@ -9,6 +9,10 @@ public class AnimationEvents : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
+    public void BlockDone()
+    {
+        anim.SetBool("Block", false);
+    }
     public void Jump()
     {
         FighterController fighter = GetComponentInParent<FighterController>();

@@ -15,11 +15,27 @@ public class MainMenu : MonoBehaviour
     }
     public void QuitToMenu()
     {
-        PlayerData.saveManager.AutoSave();
-        SceneManager.LoadScene(0); 
+        StartCoroutine(QuitToMenuCoroutine());
+    }
+    public IEnumerator QuitToMenuCoroutine()
+    {
+        SceneManager.LoadSceneAsync(3);
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
+        PlayerData.saveManager.AutoSave(); 
         PlayerData.instance.paused = false;
         PlayerData.instance.menu = true;
         PlayerData.instance.fighting = false;
+        var load = SceneManager.LoadSceneAsync(0); 
+        while (load.progress != 1)
+        {
+            yield return null;
+        }
+        if (SceneManager.GetSceneByBuildIndex(3).isLoaded) SceneManager.UnloadSceneAsync(3);
+        yield return null;
+
+
     }
     public void QuitGame()
     {
@@ -28,9 +44,25 @@ public class MainMenu : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(StartGameCoroutine());
+    }
+    public IEnumerator StartGameCoroutine()
+    {
+        SceneManager.LoadSceneAsync(3);
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
+        PlayerData.instance.Clear();
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = false;
+        PlayerData.instance.paused = false;
+        var load = SceneManager.LoadSceneAsync(1);
+        while (load.progress != 1)
+        {
+            yield return null;
+        }
+        if (SceneManager.GetSceneByBuildIndex(3).isLoaded) SceneManager.UnloadSceneAsync(3);
+        yield return null;
     }
     public void GoToSaves()
     {
@@ -44,9 +76,26 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadSave(int index)
     {
+        StartCoroutine(LoadSaveCoroutine(index));
+    }
+    public IEnumerator LoadSaveCoroutine(int index)
+    {
+        SceneManager.LoadSceneAsync(3);
+        if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
         PlayerData.saveManager.LoadSave(index); 
-        SceneManager.LoadScene(1);
+        var load = SceneManager.LoadSceneAsync(1);
+        while (load.progress != 1)
+        {
+            yield return null;
+        }
+        PlayerData.instance.menu = false;
+        PlayerData.instance.fighting = false;
+        PlayerData.instance.paused = false;
         PlayerData.instance.UpdateInventory();
+        if (SceneManager.GetSceneByBuildIndex(3).isLoaded) SceneManager.UnloadSceneAsync(3);
+        yield return null;
     }
     public void MakeSave()
     {

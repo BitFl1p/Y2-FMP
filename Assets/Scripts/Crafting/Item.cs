@@ -5,8 +5,20 @@ using UnityEngine;
 public class Item : FollowMouse
 {
     public ItemObject item;
+    #region Item Hovering
+    void OnMouseEnter()
+    {
+        ShowStats.instance.origin = gameObject;
+        ShowStats.instance.item = item;
+    }
+    private void OnMouseExit()
+    {
+        ShowStats.instance.origin = null;
+        ShowStats.instance.item = null;
+    }
+    #endregion
     public Item itemPrefab;
-    public void Instantiate(ItemObject item)
+    public void SetItem(ItemObject item)
     {
         this.item = item;
         OnEnable();
@@ -56,20 +68,25 @@ public class Item : FollowMouse
                 if (item.item.itemType == ItemType.Blade && otherItem.item.item.itemType == ItemType.Hilt || item.item.itemType == ItemType.Hilt && otherItem.item.item.itemType == ItemType.Blade)
                 {
                     var instance = Instantiate(itemPrefab);
-                    string name;
+                    string name; 
                     if (item.item.itemType == ItemType.Blade)
                     {
-                        instance.item.item.itemWeight = item.item.itemWeight;
                         name = $"{item.item.itemName.Split(' ')[0]} Sword";
+                        instance.SetItem(Object.Instantiate(Resources.Load<ItemObject>(name)));
+                        instance.item.item.itemWeight = item.item.itemWeight;
+
                     }
                     else
                     {
-                        instance.item.item.itemWeight = otherItem.item.item.itemWeight;
                         name = $"{otherItem.item.item.itemName.Split(' ')[0]} Sword";
+                        instance.SetItem(Instantiate(Resources.Load<ItemObject>(name)));
+                        instance.item.item.itemWeight = otherItem.item.item.itemWeight;
                     }
-                    instance.Instantiate(Object.Instantiate(Resources.Load<ItemObject>(name)));
+                    
                     instance.item.item.damage = item.item.damage * otherItem.item.item.damage;
                     instance.item.item.speed = item.item.speed * otherItem.item.item.speed;
+                    Destroy(otherItem.gameObject);
+                    Destroy(gameObject);
                     
                 }
             }

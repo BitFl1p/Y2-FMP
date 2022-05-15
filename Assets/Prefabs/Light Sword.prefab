@@ -471,6 +471,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
   swordMaterial: {fileID: 0}
   desiredHeight: 2
+  bladeWeight: 1
 --- !u!1 &1546482605
 GameObject:
   m_ObjectHideFlags: 0

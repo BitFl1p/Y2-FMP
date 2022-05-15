@@ -23,7 +23,7 @@ public class ShopItem : MonoBehaviour
         int price = item.item.basePrice + manager.modifier;
         if (price <= PlayerData.instance.money)
         {
-            Instantiate(itemPrefab, transform.position, transform.rotation).Instantiate(item);
+            Instantiate(itemPrefab, transform.position, transform.rotation).SetItem(item);
             PlayerData.instance.money -= price;
             manager.Refresh();
         }

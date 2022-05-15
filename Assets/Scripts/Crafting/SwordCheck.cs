@@ -37,32 +37,40 @@ public class SwordCheck : MonoBehaviour
     }
     public void GiveBlade()
     {
-        float consistency = 0;
-        if (sword)
+        float consistency = 0;float total = 0;
+        float count = 0;
+        float maxHeight = -100;
+        for (int x = sword.cellBounds.min.x; x <= sword.cellBounds.max.x; x++)
         {
-            float total = 0;
-            float count = 0;
-            float maxHeight = -100;
-            for (int x = sword.cellBounds.min.x; x <= sword.cellBounds.max.x; x++)
+            for (int y = sword.cellBounds.max.y; y >= sword.cellBounds.min.y; y--)
             {
-                for (int y = sword.cellBounds.max.y; y >= sword.cellBounds.min.y; y--)
+                if (sword.GetTile(new Vector3Int(x,y,0)) != null)
                 {
-                    if (sword.GetTile(new Vector3Int(x,y,0)) != null)
-                    {
-                        if (y > maxHeight) maxHeight = y;
-                        total += y;
-                        count++;
-                        break;
-                    } 
-                }
+                    if (y > maxHeight) maxHeight = y + 3;
+                    total += y + 3;
+                    count++;
+                    break;
+                } 
             }
-            total = Mathf.Abs(total) / desiredHeight;
-            consistency = (float) System.Math.Round((count / total), 1);
         }
+        total = Mathf.Abs(total) / desiredHeight;
+        consistency = (float) System.Math.Round((count / total), 1);
         Item item = Instantiate(itemPrefab);
-        item.Instantiate(Instantiate(Resources.Load<ItemObject>($"{swordMaterial.item.itemName} Blade")));
-        item.item.item.damage =  swordMaterial.item.damage * consistency;
+        item.SetItem(Instantiate(Resources.Load<ItemObject>($"{swordMaterial.item.itemName} Blade"))); 
+        item.item.item.damage = swordMaterial.item.damage * consistency;
         item.item.item.speed = swordMaterial.item.speed * consistency;
+        switch (bladeWeight)
+        {
+            case ItemWeight.Light:
+                item.item.item.damage *= .5f;
+                item.item.item.speed *= 2f;
+                break;
+            case ItemWeight.Heavy:
+                item.item.item.damage *= 2f;
+                item.item.item.speed *= .5f;
+                break;
+        }
+        
         item.item.item.itemWeight = bladeWeight;
         Destroy(transform.parent.gameObject);
         Debug.Log(consistency);
