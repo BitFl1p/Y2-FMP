@@ -286,7 +286,7 @@ AnimatorStateMachine:
     m_Position: {x: 670, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4396462313044823649}
-    m_Position: {x: 20, y: -30, z: 0}
+    m_Position: {x: 20, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1309944441652173763}
     m_Position: {x: 450, y: 110, z: 0}
@@ -1081,49 +1081,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Y
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: JumpAnim
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Weapon
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: StaggerPlace
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Stagger
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Block
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1720,6 +1720,12 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Block
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Stagger
+    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: Attack
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1386612037312789208}
   m_Solo: 0

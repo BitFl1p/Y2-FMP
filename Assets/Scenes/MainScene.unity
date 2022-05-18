@@ -4567,7 +4567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &431521133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16515,7 +16515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269463d2ab7cdf14b8e8e260051daf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fight: {fileID: 0}
+  fight: {fileID: 11400000, guid: 1648893b3980ee44d83b01ae346ed313, type: 2}
 --- !u!114 &1434499875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19778,7 +19778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269463d2ab7cdf14b8e8e260051daf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fight: {fileID: 0}
+  fight: {fileID: 11400000, guid: 2ccdff40fb884a040b4ea35c773104c0, type: 2}
 --- !u!114 &1654400261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20306,7 +20306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269463d2ab7cdf14b8e8e260051daf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fight: {fileID: 0}
+  fight: {fileID: 11400000, guid: 761db3abdf5cae64d85aafdab07600d9, type: 2}
 --- !u!114 &1670292421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23027,7 +23027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269463d2ab7cdf14b8e8e260051daf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fight: {fileID: 0}
+  fight: {fileID: 11400000, guid: 8976295042de6bf488d59a98ccdbb3e0, type: 2}
 --- !u!114 &1827465788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25541,7 +25541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269463d2ab7cdf14b8e8e260051daf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fight: {fileID: 0}
+  fight: {fileID: 11400000, guid: 54c43d1fc249baa4784b24ac660e78e8, type: 2}
 --- !u!114 &2080965594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25957,9 +25957,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 561915396, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -373.00003
+      objectReference: {fileID: 0}
     - target: {fileID: 1033372677276521760, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 33.799973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: money
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1124274887498713391, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_RootOrder

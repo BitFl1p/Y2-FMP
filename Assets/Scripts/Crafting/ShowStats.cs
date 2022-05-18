@@ -45,7 +45,7 @@ public class ShowStats : MonoBehaviour
             else
             {
                 damageText.text = $"+ {item.item.damage}"; 
-                speedText.text = $"+ {item.item.speed}";
+                speedText.text = $"X {item.item.speed}";
             }
         }
         else

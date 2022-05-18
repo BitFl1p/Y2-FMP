@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour
 {
     Animator anim;
+    public void KillYourself() => Destroy(gameObject);
     private void Start()
     {
         anim = GetComponent<Animator>();

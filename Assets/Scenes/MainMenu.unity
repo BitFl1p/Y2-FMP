@@ -2467,6 +2467,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 561915396, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -373.00003
+      objectReference: {fileID: 0}
     - target: {fileID: 1860225793, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2482,6 +2486,10 @@ PrefabInstance:
     - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: menu
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
+      propertyPath: money
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1124274887498713389, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: pause

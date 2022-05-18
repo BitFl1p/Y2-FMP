@@ -17,7 +17,7 @@ MonoBehaviour:
     itemName: Copper
     itemType: 0
     itemWeight: 0
-    basePrice: 20
+    basePrice: 10
     materialAmount: 5
     damage: 3
     speed: 1

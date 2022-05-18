@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FighterController : MonoBehaviour
 {
-    Animator anim;
-    Rigidbody2D rb;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public Rigidbody2D rb;
     public float animTransitionSpeed, maxSpeed, speed, crouchedSpeed, crouchedMaxSpeed, jumpPower, drag;
     public bool isGrounded, playerControlled;
     public Vector2 input;
@@ -31,6 +31,14 @@ public class FighterController : MonoBehaviour
     }
     void Update()
     {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            if(playerControlled) anim.speed = PlayerData.instance.equipped.weaponNumber > 0 ? PlayerData.instance.equipped.speed : 1;
+        }
+        else
+        {
+            if (playerControlled) anim.speed = 1;
+        }
         anim.transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(anim.transform.eulerAngles.y, (side + 1) * 90, 0.1f), 0);
         anim.SetFloat("Attack", attack);
         if (isGrounded) rb.velocity = Drag(rb.velocity, drag);

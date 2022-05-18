@@ -22,9 +22,9 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            if (PlayerData.instance.currentFight.enemyWeapon != 0) weapons[PlayerData.instance.currentFight.enemyWeapon - 1].SetActive(true);
+            if (PlayerData.instance.currentFight.enemyWeapon.weaponNumber != 0) weapons[PlayerData.instance.currentFight.enemyWeapon.weaponNumber - 1].SetActive(true);
             healthSlider = PlayerData.instance.fight.GetComponent<FightManager>().player2Health;
-            anim.SetFloat("Weapon", PlayerData.instance.currentFight.enemyWeapon);
+            anim.SetFloat("Weapon", PlayerData.instance.currentFight.enemyWeapon.weaponNumber);
         }
         
         

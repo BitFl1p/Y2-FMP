@@ -17,7 +17,7 @@ MonoBehaviour:
     itemName: Iron
     itemType: 0
     itemWeight: 0
-    basePrice: 10
+    basePrice: 20
     materialAmount: 5
     damage: 4
     speed: 1

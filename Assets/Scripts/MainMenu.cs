@@ -52,7 +52,6 @@ public class MainMenu : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
         if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
-        PlayerData.instance.Clear();
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = false;
         PlayerData.instance.paused = false;

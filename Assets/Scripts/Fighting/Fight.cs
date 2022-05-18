@@ -4,9 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Fight", menuName = "Special/Fight")]
 public class Fight : ScriptableObject
 {
+    public float difficulty;
     public int fightNumber;
     public int reward;
-    public int enemyWeapon;
+    public ItemStruct enemyWeapon;
     public Dialogue dialogue;
     public Sprite enemySprite;
 }

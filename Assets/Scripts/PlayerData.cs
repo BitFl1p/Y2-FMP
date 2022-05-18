@@ -56,7 +56,7 @@ public class PlayerData : MonoBehaviour
     {
         inventory = new List<(ItemStruct, int)> { };
         equipped = Resources.Load<ItemObject>("NULL").item;
-        money = 100;
+        money = 0;
         matchesDone = 0;
         playTime = 0;
     }
@@ -65,7 +65,6 @@ public class PlayerData : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
         if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
-        Clear();
         menu = true;
         fighting = false;
         paused = false;
