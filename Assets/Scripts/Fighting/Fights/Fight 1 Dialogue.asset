@@ -13,15 +13,27 @@ MonoBehaviour:
   m_Name: Fight 1 Dialogue
   m_EditorClassIdentifier: 
   lines:
-  - name: 
-    namePos: 400
-    name1Active: 0
-    sentence: You really think you can take me on?
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: First let's have you fight this young gentleman
     sounds: []
     characters:
     - name: 
-      sprite: {fileID: 21300000, guid: 4d91a261bb0cd364dab5461fd6debe1d, type: 3}
+      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
       animation: 0
-      position: {x: 400, y: -50}
+      position: {x: -400, y: -50}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 0, y: 0}
+  - name: ???
+    namePos: 400
+    name1Active: 1
+    sentence: First let's have you fight this young gentleman
+    sounds: []
+    characters:
+    - name: 
+      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
+      animation: 0
+      position: {x: -400, y: -50}
       scale: {x: 0.7, y: 0.7}
       emotionPosition: {x: 0, y: 0}

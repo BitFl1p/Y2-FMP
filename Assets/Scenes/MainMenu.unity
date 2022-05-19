@@ -1084,6 +1084,7 @@ MonoBehaviour:
   scroll: {fileID: 1621060638}
   saveMenu: {fileID: 1786480128}
   mainMenu: {fileID: 2095174239}
+  newGameDialogue: {fileID: 11400000, guid: 310f9797bc5d5ae48a4af0923b93086d, type: 2}
 --- !u!1 &916741724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 561915396, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -373.00003
+      value: -373
       objectReference: {fileID: 0}
     - target: {fileID: 1860225793, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_IsActive

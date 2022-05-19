@@ -81,6 +81,11 @@ public class DialogueManager : MonoBehaviour
                 {
                     if (character.name == currentChar.name) 
                     {
+                        currentChar.transform.localPosition = character.position;
+                        currentChar.transform.localScale = character.scale;
+                        currentChar.GetComponentInChildren<Image>().sprite = character.sprite;
+                        currentChar.transform.GetChild(0).GetChild(0).transform.localPosition = character.emotionPosition;
+                        currentChar.transform.GetChild(0).GetChild(1).transform.localPosition = character.emotionPosition;
                         currentChar.GetComponentInChildren<Animator>().SetInteger("Animation", (int)character.animation);
                         alreadyExists = true; 
                     }
