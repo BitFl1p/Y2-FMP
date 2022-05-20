@@ -27,25 +27,22 @@ public class Sword : MonoBehaviour
                 {
                     Vector2Int tilePos = (Vector2Int)tilemap.WorldToCell(contact.point);
                     List<Vector2Int> tilesToRemove = new List<Vector2Int> { tilePos };
-                    if (contact.relativeVelocity.magnitude <= 10)
+                    switch (true) //the famous patented Fuck You Switch™
                     {
-                        return;
-                    }
-                    else if (contact.relativeVelocity.magnitude <= 20)
-                    {
-                        for (int i = -2; i <= 2; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
-                    }
-                    else if (contact.relativeVelocity.magnitude <= 30)
-                    {
-                        for (int i = -3; i <= 3; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
-                    }
-                    else if (contact.relativeVelocity.magnitude <= 40)
-                    {
-                        for (int i = -4; i <= 4; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
-                    }
-                    else
-                    {
-                        for (int i = -5; i <= 5; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
+                        case true when contact.relativeVelocity.magnitude <= 40:
+                            return;
+                        case true when contact.relativeVelocity.magnitude <= 50:
+                            for (int i = -2; i <= 2; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
+                            break;
+                        case true when contact.relativeVelocity.magnitude <= 60:
+                            for (int i = -3; i <= 3; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
+                            break;
+                        case true when contact.relativeVelocity.magnitude <= 70:
+                            for (int i = -4; i <= 4; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
+                            break;
+                        case true:
+                            for (int i = -5; i <= 5; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
+                            break;
                     }
                     foreach (Vector3Int tile in tilesToRemove)
                     {

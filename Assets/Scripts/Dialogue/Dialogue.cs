@@ -15,6 +15,7 @@ public class Dialogue : ScriptableObject
             public Sprite sprite;
             public Transition animation;
             public Vector2 position;
+            public Vector3 rotation;
             public Vector2 scale = Vector2.one;
             public Vector2 emotionPosition = new Vector2(90, 575);
             public enum Transition

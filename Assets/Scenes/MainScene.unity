@@ -16400,6 +16400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064cfe5f2cab41d4e93406b56dec490d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightDialogue: {fileID: 11400000, guid: 5dbddf57af8cfcf459de463faf1a02c4, type: 2}
   rooms:
   - {fileID: 1022459547}
   - {fileID: 635950942}

@@ -20,11 +20,12 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Sir
-      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
       animation: 0
       position: {x: -400, y: -50}
-      scale: {x: 0.7, y: 0.7}
-      emotionPosition: {x: -100, y: 200}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
   - name: Sir
     namePos: -400
     name1Active: 1
@@ -32,11 +33,12 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Sir
-      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
       animation: 1
       position: {x: -400, y: -50}
-      scale: {x: 0.7, y: 0.7}
-      emotionPosition: {x: -100, y: 200}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
   - name: Sir
     namePos: -400
     name1Active: 1
@@ -44,11 +46,12 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Sir
-      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
       animation: 4
       position: {x: -400, y: -50}
-      scale: {x: 0.7, y: 0.7}
-      emotionPosition: {x: -100, y: 200}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
   - name: Sir
     namePos: 400
     name1Active: 1
@@ -57,14 +60,16 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Sir
-      sprite: {fileID: 21300000, guid: 11f6119d74fae764899a2a9cdee6ef5e, type: 3}
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
       animation: 1
       position: {x: 400, y: -50}
-      scale: {x: -0.7, y: 0.7}
-      emotionPosition: {x: -100, y: 200}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
     - name: Arrow
       sprite: {fileID: 21300000, guid: 6eb187a41e524254bbc59b1a3c0addfb, type: 3}
       animation: 3
       position: {x: -500, y: 0}
+      rotation: {x: 0, y: 0, z: 0}
       scale: {x: 0.2, y: 0.2}
       emotionPosition: {x: 0, y: 0}

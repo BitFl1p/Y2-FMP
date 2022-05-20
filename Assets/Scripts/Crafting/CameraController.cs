@@ -6,6 +6,7 @@ using Cinemachine;
 public class CameraController : MonoBehaviour
 {
     public static CameraController instance;
+    public Dialogue fightDialogue;
     void Awake()
     {
         instance = this;

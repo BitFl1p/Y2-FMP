@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
             {
                 GameObject prefab = Instantiate(charPrefab, charParent.transform);
                 prefab.transform.localPosition = character.position;
+                prefab.transform.localEulerAngles = character.rotation;
                 prefab.transform.localScale = character.scale;
                 prefab.GetComponentInChildren<Image>().sprite = character.sprite;
                 prefab.name = character.name;
@@ -83,6 +84,7 @@ public class DialogueManager : MonoBehaviour
                     {
                         currentChar.transform.localPosition = character.position;
                         currentChar.transform.localScale = character.scale;
+                        currentChar.transform.localEulerAngles = character.rotation;
                         currentChar.GetComponentInChildren<Image>().sprite = character.sprite;
                         currentChar.transform.GetChild(0).GetChild(0).transform.localPosition = character.emotionPosition;
                         currentChar.transform.GetChild(0).GetChild(1).transform.localPosition = character.emotionPosition;
@@ -96,6 +98,7 @@ public class DialogueManager : MonoBehaviour
                     GameObject prefab = Instantiate(charPrefab, charParent.transform);
                     prefab.transform.localPosition = character.position;
                     prefab.transform.localScale = character.scale;
+                    prefab.transform.localEulerAngles = character.rotation;
                     prefab.GetComponentInChildren<Image>().sprite = character.sprite;
                     prefab.name = character.name;
                     prefab.GetComponentInChildren<Animator>().SetInteger("Animation", (int)character.animation);
@@ -140,7 +143,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
             letterAudio.Play();
-            if (!faster) yield return new WaitForSeconds(0.05f);
+            if (!faster) yield return new WaitForSeconds(0.03f);
             else yield return new WaitForSeconds(0.01f);
         }
         done = true;

@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e896193689408e4b8ea4bee1c8cabe1, type: 3}
+  m_Name: Go Fight
+  m_EditorClassIdentifier: 
+  lines:
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: Ah the outside, you should come here more often.
+    sounds: []
+    characters:
+    - name: Sir
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
+      animation: 0
+      position: {x: -400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: Anyway, you see that building over here?
+    sounds: []
+    characters:
+    - name: Sir
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
+      animation: 1
+      position: {x: -400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: -100, y: 200}
+    - name: Arrow
+      sprite: {fileID: 21300000, guid: 878fb233391cc9d45aee8036796a0f2c, type: 3}
+      animation: 3
+      position: {x: 0, y: 300}
+      rotation: {x: 0, y: 0, z: 135}
+      scale: {x: 0.2, y: 0.2}
+      emotionPosition: {x: 100, y: 200}
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: That's the arena.
+    sounds: []
+    characters:
+    - name: Sir
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
+      animation: 1
+      position: {x: -400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: -100, y: 200}
+    - name: Arrow
+      sprite: {fileID: 21300000, guid: 878fb233391cc9d45aee8036796a0f2c, type: 3}
+      animation: 1
+      position: {x: 0, y: 300}
+      rotation: {x: 0, y: 0, z: 135}
+      scale: {x: 0.2, y: 0.2}
+      emotionPosition: {x: 100, y: 200}
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: This is where you'll be making your money.
+    sounds: []
+    characters:
+    - name: Sir
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
+      animation: 1
+      position: {x: -400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
+    - name: Arrow
+      sprite: {fileID: 21300000, guid: 878fb233391cc9d45aee8036796a0f2c, type: 3}
+      animation: 1
+      position: {x: 0, y: 300}
+      rotation: {x: 0, y: 0, z: 135}
+      scale: {x: 0.2, y: 0.2}
+      emotionPosition: {x: -100, y: 200}
+  - name: Sir
+    namePos: -400
+    name1Active: 1
+    sentence: Let's go in!
+    sounds: []
+    characters:
+    - name: Sir
+      sprite: {fileID: 21300000, guid: e7447f638a50b7d4196209700c22e821, type: 3}
+      animation: 1
+      position: {x: -400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: -0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 200}
+    - name: Arrow
+      sprite: {fileID: 21300000, guid: 878fb233391cc9d45aee8036796a0f2c, type: 3}
+      animation: 1
+      position: {x: 0, y: 300}
+      rotation: {x: 0, y: 0, z: 135}
+      scale: {x: 0.2, y: 0.2}
+      emotionPosition: {x: -100, y: 200}

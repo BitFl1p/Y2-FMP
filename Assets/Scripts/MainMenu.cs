@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
     public SaveSlot saveSlotPrefab;
     public RectTransform saveParent, scroll;
     public GameObject saveMenu, mainMenu;
-    public Dialogue newGameDialogue;
     public void ResumeGame()
     {
         PlayerData.instance.paused = false;
@@ -53,7 +52,6 @@ public class MainMenu : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded) SceneManager.UnloadSceneAsync(0);
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded) SceneManager.UnloadSceneAsync(1);
         if (SceneManager.GetSceneByBuildIndex(2).isLoaded) SceneManager.UnloadSceneAsync(2);
-        PlayerData.instance.dMan.StartDialogue(newGameDialogue);
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = false;
         PlayerData.instance.paused = false;
