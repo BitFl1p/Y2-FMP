@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e896193689408e4b8ea4bee1c8cabe1, type: 3}
+  m_Name: Fight 6 Dialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - name: Garland
+    namePos: 400
+    name1Active: 1
+    sentence: You made it past everyone else, huh?
+    sounds: []
+    characters:
+    - name: Garland
+      sprite: {fileID: 21300000, guid: 6c26769771de34842aab322e65d2314b, type: 3}
+      animation: 1
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 300}
+  - name: Garland
+    namePos: 400
+    name1Active: 1
+    sentence: Impressive!
+    sounds: []
+    characters:
+    - name: Garland
+      sprite: {fileID: 21300000, guid: 6c26769771de34842aab322e65d2314b, type: 3}
+      animation: 1
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 300}
+  - name: Garland
+    namePos: 400
+    name1Active: 1
+    sentence: Almost worth the effort of slicing you to pieces.
+    sounds: []
+    characters:
+    - name: Garland
+      sprite: {fileID: 21300000, guid: 6c26769771de34842aab322e65d2314b, type: 3}
+      animation: 1
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 300}

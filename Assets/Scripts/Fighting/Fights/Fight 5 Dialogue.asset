@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e896193689408e4b8ea4bee1c8cabe1, type: 3}
+  m_Name: Fight 5 Dialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - name: Maxima
+    namePos: 400
+    name1Active: 1
+    sentence: That Taurin guy...
+    sounds: []
+    characters:
+    - name: Maxima
+      sprite: {fileID: 21300000, guid: c8639a97a220b0346b7807ad123b22ed, type: 3}
+      animation: 1
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 300}
+  - name: Maxima
+    namePos: 400
+    name1Active: 1
+    sentence: I don't get why he relies on such slow, bulky weapons.
+    sounds: []
+    characters:
+    - name: Maxima
+      sprite: {fileID: 21300000, guid: c8639a97a220b0346b7807ad123b22ed, type: 3}
+      animation: 1
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 100, y: 300}
+  - name: Maxima
+    namePos: 400
+    name1Active: 1
+    sentence: I'll show you just how badly speed can overpower your opponent.
+    sounds: []
+    characters:
+    - name: Maxima
+      sprite: {fileID: 21300000, guid: c8639a97a220b0346b7807ad123b22ed, type: 3}
+      animation: 5
+      position: {x: 400, y: -50}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0.7, y: 0.7}
+      emotionPosition: {x: 200, y: 500}

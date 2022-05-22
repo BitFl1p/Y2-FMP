@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fight 2
   m_EditorClassIdentifier: 
   difficulty: 1
-  fightNumber: 1
+  fightNumber: 2
   reward: 30
   enemyWeapon:
     itemName: 

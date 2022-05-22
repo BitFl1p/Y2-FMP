@@ -915,7 +915,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1124274887498713552}
-  m_PlaneDistance: 3
+  m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2180,7 +2180,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1124274887498713552}
-  m_PlaneDistance: 3
+  m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2265,11 +2265,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1124274887498713391}
+  - component: {fileID: 1124274887498713389}
   - component: {fileID: 1124274887498713552}
   - component: {fileID: 1124274887498713554}
   - component: {fileID: 1124274887498713553}
   - component: {fileID: 1124274887498713390}
-  - component: {fileID: 1124274887498713389}
   - component: {fileID: 1124274887498713388}
   - component: {fileID: 934969524}
   m_Layer: 6
@@ -2297,6 +2297,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124274887498713389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124274887498713555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efb02cbd65d2cd45949700ce28595b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipped:
+    itemName: 
+    itemType: 0
+    itemWeight: 0
+    basePrice: 0
+    materialAmount: 0
+    damage: 0
+    speed: 0
+    weaponNumber: 0
+    color:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
+  money: 999999999
+  moneyText: {fileID: 3124594979982190501}
+  matchesDone: 0
+  playTime: 0
+  controls:
+    punch: 99
+  uiEquipped: {fileID: 2791242325753089570}
+  itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
+  uiItems: []
+  uiItemPrefab: {fileID: 5854702343335724956, guid: 1eb2c9aa7d253a740b8d6f2a9b57b4ca, type: 3}
+  inventoryPlace: {fileID: 1124274887715461448}
+  forge: {fileID: 1124274886714946220}
+  fight: {fileID: 3308977233372774195}
+  pause: {fileID: 3293302733703060380}
+  fighting: 0
+  paused: 0
+  menu: 0
+  dMan: {fileID: 1604614786}
+  currentFight: {fileID: 0}
+  playerWon: 0
+  playerLost: 0
 --- !u!20 &1124274887498713552
 Camera:
   m_ObjectHideFlags: 0
@@ -2398,53 +2445,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!114 &1124274887498713389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124274887498713555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efb02cbd65d2cd45949700ce28595b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipped:
-    itemName: 
-    itemType: 0
-    itemWeight: 0
-    basePrice: 0
-    materialAmount: 0
-    damage: 0
-    speed: 0
-    weaponNumber: 0
-    color:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
-  money: 999999999
-  moneyText: {fileID: 3124594979982190501}
-  matchesDone: 0
-  playTime: 0
-  controls:
-    punch: 99
-  uiEquipped: {fileID: 2791242325753089570}
-  itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
-  uiItems: []
-  uiItemPrefab: {fileID: 5854702343335724956, guid: 1eb2c9aa7d253a740b8d6f2a9b57b4ca, type: 3}
-  inventoryPlace: {fileID: 1124274887715461448}
-  forge: {fileID: 1124274886714946220}
-  fight: {fileID: 3308977233372774195}
-  pause: {fileID: 3293302733703060380}
-  fighting: 0
-  paused: 0
-  menu: 0
-  dMan: {fileID: 1604614786}
-  currentFight: {fileID: 0}
-  playerWon: 0
-  playerLost: 0
 --- !u!61 &1124274887498713388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4115,7 +4115,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1124274887498713552}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -4240,7 +4240,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1124274887498713552}
-  m_PlaneDistance: 3
+  m_PlaneDistance: 2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0

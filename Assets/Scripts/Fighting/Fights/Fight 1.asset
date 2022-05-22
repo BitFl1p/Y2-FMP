@@ -29,5 +29,5 @@ MonoBehaviour:
       g: 0
       b: 0
       a: 0
-  dialogue: {fileID: 11400000, guid: e010714aab52e084c8efd3fc3b7fda3c, type: 2}
+  dialogue: {fileID: 11400000, guid: 22c9710334dfe00469c340d398f5ebbc, type: 2}
   enemySprite: {fileID: 21300000, guid: 4d91a261bb0cd364dab5461fd6debe1d, type: 3}

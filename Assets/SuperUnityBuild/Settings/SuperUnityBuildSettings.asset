@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8463771737555848747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d962d142a259c394da2bdb301b72eeb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 2
+    name: macOS
+    enabled: 1
+    binaryNameFormat: '{0}.app'
+  variants:
+  - variantName: macOS Architecture
+    selectedIndex: 2
+    values:
+    - Intelx64
+    - Apple Silicon
+    - Universal
+  - variantName: Build Output
+    selectedIndex: 0
+    values:
+    - App
+    - Xcode Project
+  platformName: macOS
+  dataDirNameFormat: '{0}.app/Contents'
+  targetGroup: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,29 +52,97 @@ MonoBehaviour:
     buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 0
-    buildVersion: 
-    versionTemplate: 1.0.0.$BUILD
+    buildCounter: 3
+    buildVersion: 0.0.3
+    versionTemplate: 0.0.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
   _releaseTypeList:
-    releaseTypes: []
+    releaseTypes:
+    - typeName: UAL
+      bundleIdentifier: com.OrangeMagnet.Y2FMP
+      companyName: Orange Magnet
+      productName: DIY Duelist
+      buildOptions: 0
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - fileGUID: 5aa515d689d089648bca65c492b8a684
+        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+        - fileGUID: d34f85763f7bcfe4094513c16e1108f9
+        - fileGUID: 3abc93d702737b842b75bea198215135
+        - fileGUID: 38438e00ce55d7640be8218c2f79a5b3
   _platformList:
-    platforms: []
+    platforms:
+    - {fileID: 6032163318740326687}
+    - {fileID: -8463771737555848747}
+    - {fileID: 9194740827563219058}
+    - {fileID: 1048817474222542196}
   _projectConfigurations:
     configSet:
-      _Buckets: ffffffffffffffffffffffff
-      _HashCodes: 000000000000000000000000
-      _Next: 000000000000000000000000
-      _Count: 0
-      _Version: 0
+      _Buckets: 05000000020000000400000001000000ffffffff03000000ffffffffffffffff0700000006000000ffffffffffffffffffffffff09000000ffffffff0000000008000000
+      _HashCodes: ea9f21302e32991af405dc2ac9204f103a72041e0a9a287799ccc4003008e73dd2c8ac3fb0028e5400000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
+      _Count: 10
+      _Version: 10
       _FreeList: -1
       _FreeCount: 0
       _Keys:
+      - UAL/PC/Windows x86 (App)
+      - UAL/PC/Windows x64 (App)
+      - UAL/PC
+      - UAL/macOS/macOS (Universal,App)
+      - UAL/macOS
+      - UAL/Linux/Linux x64
+      - UAL/Linux
+      - UAL/WebGL/WebGL
+      - UAL/WebGL
+      - UAL
+      - 
+      - 
+      - 
+      - 
       - 
       - 
       - 
       _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - UAL/PC/Windows x86 (App)
+        - UAL/PC/Windows x64 (App)
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - UAL/macOS/macOS (Universal,App)
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - UAL/Linux/Linux x64
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - UAL/WebGL/WebGL
+      - enabled: 1
+        childKeys:
+        - UAL/PC
+        - UAL/macOS
+        - UAL/Linux
+        - UAL/WebGL
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
       - enabled: 1
         childKeys: []
       - enabled: 1
@@ -56,3 +159,84 @@ MonoBehaviour:
     buildActions: []
   _postBuildActions:
     buildActions: []
+--- !u!114 &1048817474222542196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acaf75cc66fc934ea46bf602fc7c245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 20
+    name: WebGL
+    enabled: 1
+    binaryNameFormat: '{0}'
+  variants: []
+  platformName: WebGL
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 13
+--- !u!114 &6032163318740326687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 5
+    name: Windows x86
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  - target: 19
+    name: Windows x64
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  variants:
+  - variantName: Build Output
+    selectedIndex: 0
+    values:
+    - App
+    - Visual Studio Solution
+  platformName: PC
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 1
+--- !u!114 &9194740827563219058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc439ce9d1bfb34a821f7d6fabc4fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 24
+    name: Linux x64
+    enabled: 1
+    binaryNameFormat: '{0}.x86_64'
+  variants: []
+  platformName: Linux
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 1

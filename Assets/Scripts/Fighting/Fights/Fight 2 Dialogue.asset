@@ -33,7 +33,7 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Dagger
-      sprite: {fileID: 21300000, guid: 4d91a261bb0cd364dab5461fd6debe1d, type: 3}
+      sprite: {fileID: 21300000, guid: a9ce233b278e3444db5c6f9dab9f33f5, type: 3}
       animation: 1
       position: {x: 400, y: -50}
       rotation: {x: 0, y: 0, z: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
     sounds: []
     characters:
     - name: Dagger
-      sprite: {fileID: 21300000, guid: 4d91a261bb0cd364dab5461fd6debe1d, type: 3}
+      sprite: {fileID: 21300000, guid: a9ce233b278e3444db5c6f9dab9f33f5, type: 3}
       animation: 1
       position: {x: 400, y: -50}
       rotation: {x: 0, y: 0, z: 0}

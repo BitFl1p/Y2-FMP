@@ -13,39 +13,26 @@ MonoBehaviour:
   m_Name: Fight 3 Dialogue
   m_EditorClassIdentifier: 
   lines:
-  - name: Dagger
+  - name: Jack
     namePos: 400
     name1Active: 1
-    sentence: One fight in huh?
+    sentence: No guns allowed?
     sounds: []
     characters:
-    - name: Dagger
+    - name: Jack
       sprite: {fileID: 21300000, guid: 5495b467ee5766340b5a4dcfe000d965, type: 3}
       animation: 1
       position: {x: 400, y: -50}
       rotation: {x: 0, y: 0, z: 0}
       scale: {x: 0.7, y: 0.7}
       emotionPosition: {x: 100, y: 300}
-  - name: Dagger
+  - name: Jack
     namePos: 400
     name1Active: 1
-    sentence: Alright, I won't use weapons then.
+    sentence: Tad boring if you ask me...
     sounds: []
     characters:
-    - name: Dagger
-      sprite: {fileID: 21300000, guid: 5495b467ee5766340b5a4dcfe000d965, type: 3}
-      animation: 1
-      position: {x: 400, y: -50}
-      rotation: {x: 0, y: 0, z: 0}
-      scale: {x: 0.7, y: 0.7}
-      emotionPosition: {x: 100, y: 300}
-  - name: Dagger
-    namePos: 400
-    name1Active: 1
-    sentence: Just to give you a fair fight
-    sounds: []
-    characters:
-    - name: Dagger
+    - name: Jack
       sprite: {fileID: 21300000, guid: 5495b467ee5766340b5a4dcfe000d965, type: 3}
       animation: 1
       position: {x: 400, y: -50}
