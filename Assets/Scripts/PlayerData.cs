@@ -59,6 +59,7 @@ public class PlayerData : MonoBehaviour
         money = 0;
         matchesDone = 0;
         playTime = 0;
+        UpdateInventory();
     }
     public IEnumerator LoadFightScene()
     {
@@ -142,6 +143,7 @@ public class PlayerData : MonoBehaviour
 
         }
         if (equipped.weaponNumber != 0) uiEquipped.item = Resources.Load<ItemObject>(equipped.itemName);
+        else uiEquipped.item = Resources.Load<ItemObject>("NULL");
     }
     public bool EquipItem(ItemObject item)
     {
@@ -265,9 +267,11 @@ public class SaveManager
         if(saves.Count > index)
         {
             PlayerData.instance.inventory = saves[index].inventory;
+            PlayerData.instance.equipped = saves[index].equipped;
             PlayerData.instance.money = saves[index].money;
             PlayerData.instance.matchesDone = saves[index].matchesDone;
             PlayerData.instance.controls = saves[index].controls;
+            PlayerData.instance.UpdateInventory();
         }
     }
     public void DeleteSave(SaveData save, string fileName)
@@ -315,6 +319,7 @@ public class SaveManager
         public void LoadSave()
         {
             PlayerData.instance.inventory = inventory;
+            PlayerData.instance.equipped = equipped;
             PlayerData.instance.UpdateInventory();
             PlayerData.instance.money = money;
             PlayerData.instance.matchesDone = matchesDone;

@@ -54,7 +54,7 @@ public class SwordCheck : MonoBehaviour
             }
         }
         total = Mathf.Abs(total) / desiredHeight;
-        consistency = (float) System.Math.Round((count / total), 1);
+        consistency = (float) System.Math.Round((total / count), 1);
         Item item = Instantiate(itemPrefab);
         item.SetItem(Instantiate(Resources.Load<ItemObject>($"{swordMaterial.item.itemName} Blade"))); 
         item.item.item.damage = swordMaterial.item.damage * consistency;
@@ -72,7 +72,7 @@ public class SwordCheck : MonoBehaviour
         }
         
         item.item.item.itemWeight = bladeWeight;
-        Destroy(transform.parent.gameObject);
         Debug.Log(consistency);
+        Destroy(transform.parent.gameObject);
     }
 }

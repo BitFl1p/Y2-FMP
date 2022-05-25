@@ -77,14 +77,13 @@ MonoBehaviour:
     - {fileID: 6032163318740326687}
     - {fileID: -8463771737555848747}
     - {fileID: 9194740827563219058}
-    - {fileID: 1048817474222542196}
   _projectConfigurations:
     configSet:
-      _Buckets: 05000000020000000400000001000000ffffffff03000000ffffffffffffffff0700000006000000ffffffffffffffffffffffff09000000ffffffff0000000008000000
-      _HashCodes: ea9f21302e32991af405dc2ac9204f103a72041e0a9a287799ccc4003008e73dd2c8ac3fb0028e5400000000000000000000000000000000000000000000000000000000
-      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000
-      _Count: 10
-      _Version: 10
+      _Buckets: 05000000020000000400000001000000ffffffff03000000ffffffffffffffffffffffff06000000ffffffffffffffffffffffff07000000ffffffff00000000ffffffff
+      _HashCodes: ea9f21302e32991af405dc2ac9204f103a72041e0a9a287799ccc400b0028e54000000000000000000000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000
+      _Count: 8
+      _Version: 8
       _FreeList: -1
       _FreeCount: 0
       _Keys:
@@ -95,9 +94,9 @@ MonoBehaviour:
       - UAL/macOS
       - UAL/Linux/Linux x64
       - UAL/Linux
-      - UAL/WebGL/WebGL
-      - UAL/WebGL
       - UAL
+      - 
+      - 
       - 
       - 
       - 
@@ -125,16 +124,14 @@ MonoBehaviour:
         childKeys:
         - UAL/Linux/Linux x64
       - enabled: 1
-        childKeys: []
-      - enabled: 1
-        childKeys:
-        - UAL/WebGL/WebGL
-      - enabled: 1
         childKeys:
         - UAL/PC
         - UAL/macOS
         - UAL/Linux
-        - UAL/WebGL
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
       - enabled: 1
         childKeys: []
       - enabled: 1
@@ -159,30 +156,6 @@ MonoBehaviour:
     buildActions: []
   _postBuildActions:
     buildActions: []
---- !u!114 &1048817474222542196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0acaf75cc66fc934ea46bf602fc7c245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enabled: 1
-  distributionList:
-    distributions: []
-  architectures:
-  - target: 20
-    name: WebGL
-    enabled: 1
-    binaryNameFormat: '{0}'
-  variants: []
-  platformName: WebGL
-  dataDirNameFormat: '{0}_Data'
-  targetGroup: 13
 --- !u!114 &6032163318740326687
 MonoBehaviour:
   m_ObjectHideFlags: 0

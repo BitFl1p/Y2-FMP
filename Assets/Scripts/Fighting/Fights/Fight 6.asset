@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0.3
   fightNumber: 6
-  reward: 30
+  reward: 100
   enemyWeapon:
     itemName: 
     itemType: 2

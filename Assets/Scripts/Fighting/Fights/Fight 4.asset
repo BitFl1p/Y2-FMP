@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0.8
   fightNumber: 4
-  reward: 30
+  reward: 50
   enemyWeapon:
     itemName: bruh
     itemType: 2

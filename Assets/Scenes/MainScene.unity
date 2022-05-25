@@ -9836,7 +9836,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.11580944}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9847,7 +9847,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.7683811}
   m_EdgeRadius: 0
 --- !u!1 &775911516
 GameObject:
@@ -11375,7 +11375,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.08492684}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11386,7 +11386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1698537}
   m_EdgeRadius: 0
 --- !u!1 &950522668
 GameObject:
@@ -16450,7 +16450,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.077206135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16461,7 +16461,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1544123}
   m_EdgeRadius: 0
 --- !u!1 &1434499872
 GameObject:
@@ -24832,7 +24832,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.09264755}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -24843,7 +24843,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1852951}
   m_EdgeRadius: 0
 --- !u!1 &2053369121
 GameObject:
@@ -25960,7 +25960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 561915396, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -373.00003
+      value: -373
       objectReference: {fileID: 0}
     - target: {fileID: 1033372677276521760, guid: 386603b7eec42144aba1ecb2b3f9bf36, type: 3}
       propertyPath: m_AnchoredPosition.y

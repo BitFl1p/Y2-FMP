@@ -29,15 +29,15 @@ public class Sword : MonoBehaviour
                     List<Vector2Int> tilesToRemove = new List<Vector2Int> { tilePos };
                     switch (true) //the famous patented Fuck You Switch™
                     {
-                        case true when contact.relativeVelocity.magnitude <= 40:
+                        case true when contact.relativeVelocity.magnitude <= 30:
                             return;
-                        case true when contact.relativeVelocity.magnitude <= 50:
+                        case true when contact.relativeVelocity.magnitude <= 40:
                             for (int i = -2; i <= 2; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                             break;
-                        case true when contact.relativeVelocity.magnitude <= 60:
+                        case true when contact.relativeVelocity.magnitude <= 50:
                             for (int i = -3; i <= 3; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                             break;
-                        case true when contact.relativeVelocity.magnitude <= 70:
+                        case true when contact.relativeVelocity.magnitude <= 60:
                             for (int i = -4; i <= 4; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                             break;
                         case true:
