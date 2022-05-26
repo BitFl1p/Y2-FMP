@@ -152,11 +152,11 @@ PlayerSettings:
     Windows Store Apps: com.OrangeMagnet.DIYDuelist
     iPhone: com.OrangeMagnet.Y2FMP
   buildNumber:
-    Standalone: 5
-    iPhone: 5
+    Standalone: 6
+    iPhone: 6
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 6
+  AndroidBundleVersionCode: 7
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

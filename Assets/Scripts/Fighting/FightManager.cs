@@ -9,7 +9,7 @@ public class FightManager : MonoBehaviour
     public Slider player1Health, player2Health;
     public TMP_Text timerText;
     public int maxTimer;
-    float timer;
+    public float timer;
     private void Start()
     {
         timer = maxTimer;

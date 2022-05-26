@@ -31,6 +31,7 @@ public class FightHolder : MonoBehaviour
         PlayerData.instance.paused = false;
         PlayerData.instance.menu = false;
         PlayerData.instance.fighting = true;
+        PlayerData.instance.fight.GetComponent<FightManager>().timer = PlayerData.instance.fight.GetComponent<FightManager>().maxTimer;
         var load = SceneManager.LoadSceneAsync(2);
         while (load.progress != 1)
         {

@@ -61,6 +61,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
             else
             {
                 nameText.text = "None";
+                sprite.sprite = defaultSprite;
             }
         }
         else

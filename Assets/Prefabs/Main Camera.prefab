@@ -4766,6 +4766,7 @@ MonoBehaviour:
   player2Health: {fileID: 6735599815537846640}
   timerText: {fileID: 7913845210955367851}
   maxTimer: 99
+  timer: 0
 --- !u!1 &3463529331625883046
 GameObject:
   m_ObjectHideFlags: 0
@@ -7625,7 +7626,7 @@ MonoBehaviour:
   sprite: {fileID: 4948363751445556382}
   defaultSprite: {fileID: 5218564393186695153, guid: e000912301f61214bbc97e08a3c753b9, type: 3}
   nameText: {fileID: 3666186134949160661}
-  item: {fileID: 11400000, guid: 0b2eddc6d79754e40a68df7c9740a591, type: 2}
+  item: {fileID: 11400000, guid: 4e96dc4bd963df743a85493b5aa6d5ba, type: 2}
   itemPrefab: {fileID: 6974806010415599300, guid: 90d68c2c38e2b864d8ffc8c51664b50e, type: 3}
   amount: 0
   equipped: 1

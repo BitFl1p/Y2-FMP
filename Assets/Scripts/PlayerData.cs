@@ -60,7 +60,7 @@ public class PlayerData : MonoBehaviour
     public void Clear()
     {
         inventory = new List<(ItemStruct, int)> { };
-        equipped = Resources.Load<ItemObject>("NULL").item;
+        equipped = Instantiate(Resources.Load<ItemObject>("NULL")).item;
         money = 0;
         matchesDone = 0;
         playTime = 0;
@@ -167,8 +167,12 @@ public class PlayerData : MonoBehaviour
             }
 
         }
-        if (equipped.weaponNumber != 0) uiEquipped.item = Resources.Load<ItemObject>(equipped.itemName);
-        else uiEquipped.item = Resources.Load<ItemObject>("NULL");
+        if (equipped.weaponNumber != 0)
+        {
+            uiEquipped.item = Resources.Load<ItemObject>(equipped.itemName);
+            uiEquipped.item.item = equipped;
+        }
+        else uiEquipped.item = Instantiate(Resources.Load<ItemObject>("NULL"));
     }
     public bool EquipItem(ItemObject item)
     {
@@ -291,6 +295,7 @@ public class SaveManager
     {
         if(saves.Count > index)
         {
+            PlayerData.instance.Clear();
             PlayerData.instance.inventory = saves[index].inventory;
             PlayerData.instance.equipped = saves[index].equipped;
             PlayerData.instance.money = saves[index].money;
@@ -343,13 +348,14 @@ public class SaveManager
         }
         public void LoadSave()
         {
+            PlayerData.instance.Clear();
             PlayerData.instance.inventory = inventory;
             PlayerData.instance.equipped = equipped;
-            PlayerData.instance.UpdateInventory();
             PlayerData.instance.money = money;
             PlayerData.instance.matchesDone = matchesDone;
             PlayerData.instance.playTime = playTime;
             PlayerData.instance.controls = controls;
+            PlayerData.instance.UpdateInventory();
         }
         public void Save(string name)
         {
