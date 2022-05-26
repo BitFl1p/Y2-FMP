@@ -127,7 +127,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.0.3
+  bundleVersion: 0.0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -152,11 +152,11 @@ PlayerSettings:
     Windows Store Apps: com.OrangeMagnet.DIYDuelist
     iPhone: com.OrangeMagnet.Y2FMP
   buildNumber:
-    Standalone: 4
-    iPhone: 4
+    Standalone: 5
+    iPhone: 5
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 5
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

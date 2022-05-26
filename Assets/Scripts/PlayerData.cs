@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class PlayerData : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class PlayerData : MonoBehaviour
     public DialogueManager dMan;
     public Fight currentFight;
     public bool playerWon, playerLost;
+    public List<AudioSource> menuSongs;
+    public List<AudioSource> fightSongs;
+    public List<AudioSource> itemSFX, hammerSFX, cauldronSFX, punchSFX;
+    public int songPlayingIndex;
     public void Clear()
     {
         inventory = new List<(ItemStruct, int)> { };
@@ -74,9 +79,28 @@ public class PlayerData : MonoBehaviour
     }
     void Update()
     {
-        
-        
-        
+
+
+        if (fighting)
+        {
+            if (!fightSongs[0].isPlaying)
+            {
+                songPlayingIndex = Random.Range(0,fightSongs.Count-1);
+                foreach (var song in fightSongs) song.Stop();
+                fightSongs[songPlayingIndex].Play();
+            }
+            foreach(var song in menuSongs) song.Stop();
+        }
+        else
+        {
+            if (!menuSongs[songPlayingIndex].isPlaying)
+            {
+                songPlayingIndex = Random.Range(0, menuSongs.Count-1); 
+                foreach (var song in menuSongs) song.Stop();
+                menuSongs[songPlayingIndex].Play();
+            }
+            foreach (var song in fightSongs) song.Stop();
+        }
         if (menu)
         {
             forge.SetActive(false);
@@ -95,6 +119,7 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 1;
             pause.SetActive(false);
         }
         moneyText.text = $"{money}";

@@ -60,6 +60,7 @@ public class Item : FollowMouse
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerData.instance.itemSFX[Random.Range(0, PlayerData.instance.itemSFX.Count - 1)].Play();
         if (clickedOn)
         {
             if (collision.gameObject.TryGetComponent(out Item otherItem))

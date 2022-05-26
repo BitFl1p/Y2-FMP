@@ -44,6 +44,7 @@ public class Sword : MonoBehaviour
                             for (int i = -5; i <= 5; i++) tilesToRemove.Add(tilePos + new Vector2Int(i, 0));
                             break;
                     }
+                    PlayerData.instance.hammerSFX[Random.Range(0, PlayerData.instance.hammerSFX.Count - 1)].Play();
                     foreach (Vector3Int tile in tilesToRemove)
                     {
                         if (tilemap.HasTile(tile) && !tilemap.HasTile(tile + new Vector3Int(0,1,0))) tilemap.SetTile(tile, null);

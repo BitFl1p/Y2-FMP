@@ -34,12 +34,10 @@ public class Hurtbox : MonoBehaviour
         if (timer > 0.9)
         {
             vcam.m_Lens.OrthographicSize = 6.4f;
-            Time.timeScale = 0.1f;
         }
         else 
         {
             vcam.m_Lens.OrthographicSize = 6.5f;
-            Time.timeScale = 1f; 
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +70,7 @@ public class Hurtbox : MonoBehaviour
                             break;
 
                     }
+                    PlayerData.instance.punchSFX[Random.Range(0, PlayerData.instance.punchSFX.Count - 1)].Play();
                     Instantiate(hit, (transform.position + collision.transform.position) / 2, Quaternion.identity).transform.LookAt(transform.position);
                     player.otherPlayer.attack = 0;
                     anim.SetBool("Stagger", true);

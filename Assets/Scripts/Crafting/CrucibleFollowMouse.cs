@@ -51,7 +51,8 @@ public class CrucibleFollowMouse : FollowMouse
         if (itemMelting)
         {
             if (startMelting) 
-            { 
+            {
+                PlayerData.instance.cauldronSFX[Random.Range(0, PlayerData.instance.cauldronSFX.Count - 1)].Play();
                 originalScale = theItemMelting.transform.localScale;
                 startMelting = false;
             }
